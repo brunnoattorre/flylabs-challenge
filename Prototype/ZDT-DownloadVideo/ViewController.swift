@@ -12,16 +12,15 @@ import AVKit
 import AVFoundation
 
 
-class ViewController: UIViewController, NSURLSessionDownloadDelegate {
+class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet weak var videoView: UIView!
 
     @IBOutlet var progressView: ProgressView!
 
-    @IBOutlet var statusLabel: UILabel!
     
-    @IBOutlet var downloadButton: DownloadButton!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     private var progress: Float = 0
     private var totalBytes = [Int: Int64]()
     private var totalDownloaded = [Int: Int64]()
@@ -34,8 +33,6 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate {
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
-        statusLabel.text = "Downloading video"
-        downloadButton.setTitle("Stop download", forState: .Normal)
         createDownloadTask()
         
     }
@@ -68,11 +65,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate {
         progress = Float(totalDownloadedBytes) / Float(totalBytesExpected)
         progressView.animateProgressViewToProgress(progress)
         progressView.updateProgressViewLabelWithProgress(progress * 100)
-        progressView.updateProgressViewWith(Float(totalDownloadedBytes), totalFileSize: Float(totalBytesExpected))
+        
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        statusLabel.text = "Download finished"
         
         let fileManager = NSFileManager.defaultManager()
         let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
@@ -110,17 +106,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate {
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
-        if let error = error {
-            statusLabel.text = "Download failed"
-        } else {
-            statusLabel.text = "Download finished"
-        }
-        task.cancel()
+                task.cancel()
         
     }
     
     func resetView() {
-        downloadButton.setTitle("Start download", forState: .Normal)
         for task in listTasks{
             task.cancel()
         }
@@ -129,8 +119,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate {
     // MARK: view methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        statusLabel.text = ""
         addGradientBackgroundLayer()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
+        layout.itemSize = CGSize(width: 90, height: 90)
+        
     }
     
     func addGradientBackgroundLayer() {
@@ -145,8 +138,24 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate {
         view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
 
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
+        cell.title?.text = "Group \(indexPath.row)"
+        cell.pinImage?.image = UIImage(named: "securitymonkeyHead.png")
+        return cell
+    }
+    @IBAction func initiateDownload(sender: AnyObject) {
+        downloadButtonPressed()
     }
     
 }

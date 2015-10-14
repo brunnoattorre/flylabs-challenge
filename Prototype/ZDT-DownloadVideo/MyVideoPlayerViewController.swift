@@ -21,7 +21,8 @@ class MyVideoPlayerViewController: AVPlayerViewController{
         view.addGestureRecognizer(tapRecognizer);
     }
  
-    func handleTap(sender: UITapGestureRecognizer? = nil) {
-            self.player?.pause()
+    @IBAction func handleTap(sender: AnyObject) {
+        self.player?.pause()
+
     }
 }

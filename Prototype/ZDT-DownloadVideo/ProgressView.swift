@@ -14,7 +14,6 @@ class ProgressView: UIView {
     private let progressLayer: CAShapeLayer = CAShapeLayer()
     
     private var progressLabel: UILabel = UILabel()
-    private var sizeProgressLabel : UILabel = UILabel()
     
     // layer to show the dashed circle layer
     private var dashedLayer: CAShapeLayer = CAShapeLayer()
@@ -40,25 +39,14 @@ class ProgressView: UIView {
         progressLabel.textColor = .whiteColor()
         progressLabel.textAlignment = .Center
         progressLabel.text = "0 %"
-        progressLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 40.0)
+        progressLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 20.0)
         progressLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(progressLabel)
         // add constraints
         addConstraint(NSLayoutConstraint(item: self, attribute: .CenterX, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
         addConstraint(NSLayoutConstraint(item: self, attribute: .CenterY, relatedBy: .Equal, toItem: progressLabel, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
         
-        // label to show the already downloaded size and the total size of the file
-        sizeProgressLabel = UILabel()
-        sizeProgressLabel.textColor = .whiteColor()
-        sizeProgressLabel.textAlignment = .Center
-        sizeProgressLabel.text = "0.0 MB / 0.0 MB"
-        sizeProgressLabel.font = UIFont(name: "HelveticaNeue-Light", size: 10.0)
-        sizeProgressLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(sizeProgressLabel)
-        // add constraints
-        addConstraint(NSLayoutConstraint(item: self, attribute: .CenterX, relatedBy: .Equal, toItem: sizeProgressLabel, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-        addConstraint(NSLayoutConstraint(item: progressLabel, attribute: .Bottom, relatedBy: .Equal, toItem: sizeProgressLabel, attribute: .Top, multiplier: 1.0, constant: -10.0))
-    }
+        }
     
     private func createProgressLayer() {
         let startAngle = CGFloat(M_PI_2)
@@ -98,10 +86,7 @@ class ProgressView: UIView {
         progressLabel.text = NSString(format: "%.0f %@", percent, "%") as String
     }
     
-    func updateProgressViewWith(totalSent: Float, totalFileSize: Float) {
-        sizeProgressLabel.text = NSString(format: "%.1f MB / %.1f MB", convertFileSizeToMegabyte(totalSent), convertFileSizeToMegabyte(totalFileSize)) as String
-    }
-    
+        
     private func convertFileSizeToMegabyte(size: Float) -> Float {
         return (size / 1024) / 1024
     }

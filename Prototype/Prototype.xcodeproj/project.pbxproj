@@ -17,6 +17,8 @@
 		56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D41AD9739A008FE9FB /* ProgressView.swift */; };
 		C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */; };
 		C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF31BCC18FB00725BA9 /* AVKit.framework */; };
+		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; settings = {ASSET_TAGS = (); }; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		C90C8FEA1BCC0FE900725BA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C90C8FF31BCC18FB00725BA9 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,9 +97,11 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */,
 				56B060B11AD97085008FE9FB /* AppDelegate.swift */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
+				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
@@ -225,6 +231,7 @@
 			files = (
 				56B060B71AD97085008FE9FB /* Main.storyboard in Resources */,
 				56B060BC1AD97085008FE9FB /* LaunchScreen.xib in Resources */,
+				C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */,
 				56B060B91AD97085008FE9FB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +252,7 @@
 			files = (
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
+				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,

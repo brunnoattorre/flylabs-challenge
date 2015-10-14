@@ -1,77 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eO9-je-LzY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Title TBD-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZZ-0v-mhd" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="60" y="498" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="BAj-bN-9He"/>
-                                    <constraint firstAttribute="width" constant="200" id="wrK-Ns-uk1"/>
-                                </constraints>
-                                <state key="normal" title="Start download">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iX3-oI-40R">
+                                <rect key="frame" x="0.0" y="144" width="320" height="424"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH8-bG-0vO">
+                                    <size key="itemSize" width="82" height="108"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="F0Q-nG-YGb" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7cA-x5-EYN">
+                                                    <rect key="frame" x="6" y="8" width="71" height="71"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cf2-nE-Qf1">
+                                                    <rect key="frame" x="20" y="79" width="42" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outlet property="pinImage" destination="7cA-x5-EYN" id="SW0-JN-luO"/>
+                                            <outlet property="title" destination="cf2-nE-Qf1" id="dfh-Cz-cVh"/>
+                                            <outletCollection property="gestureRecognizers" destination="4lD-fZ-yMa" appends="YES" id="O8n-Tf-mgb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <action selector="downloadButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="amZ-Qd-Vii"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="VLt-ZV-KYJ"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="35" y="60" width="250" height="250"/>
+                            </collectionView>
+                            <view contentMode="scaleToFill" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="116" y="64" width="81" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="NM6-r3-Hug"/>
-                                    <constraint firstAttribute="width" constant="250" id="NMg-3K-Yh0"/>
-                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usA-35-OxI">
-                                <rect key="frame" x="35" y="325" width="250" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GET-El-SgT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="41" y="149" width="230" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="usA-35-OxI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="35" id="93J-ah-nwj"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="JZZ-0v-mhd" secondAttribute="bottom" constant="20" id="Nrs-s4-RGK"/>
-                            <constraint firstItem="KRs-ie-EPh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="Tsx-E8-cfb"/>
-                            <constraint firstItem="usA-35-OxI" firstAttribute="top" secondItem="KRs-ie-EPh" secondAttribute="bottom" constant="15" id="VeC-7Y-6Hc"/>
-                            <constraint firstAttribute="centerX" secondItem="JZZ-0v-mhd" secondAttribute="centerX" id="ZmN-8A-hl8"/>
-                            <constraint firstAttribute="centerX" secondItem="KRs-ie-EPh" secondAttribute="centerX" id="dPH-PF-eyY"/>
-                            <constraint firstAttribute="centerX" secondItem="usA-35-OxI" secondAttribute="centerX" id="eff-jF-cnH"/>
-                            <constraint firstAttribute="trailing" secondItem="usA-35-OxI" secondAttribute="trailing" constant="35" id="y3C-xt-Cse"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title TBD" id="27V-oi-hj0"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="downloadButton" destination="JZZ-0v-mhd" id="14m-8S-WLf"/>
+                        <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
                         <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
-                        <outlet property="statusLabel" destination="usA-35-OxI" id="QqJ-qH-oPR"/>
                         <segue destination="D0c-iq-l2W" kind="modal" identifier="segue1" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4lD-fZ-yMa">
+                    <connections>
+                        <action selector="initiateDownload:" destination="vXZ-lx-hvc" id="P1E-LU-hMK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-824" y="372"/>
+            <point key="canvasLocation" x="-292" y="372"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="axf-15-Rb0">
@@ -82,7 +103,25 @@
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-245" y="372"/>
+            <point key="canvasLocation" x="287" y="372"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="elc-rQ-KMr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eO9-je-LzY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gH2-pu-jvx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="U9W-6P-Q6o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vW2-yE-dcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-824" y="372"/>
         </scene>
     </scenes>
 </document>
