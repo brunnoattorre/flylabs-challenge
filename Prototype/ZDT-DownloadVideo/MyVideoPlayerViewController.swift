@@ -11,16 +11,29 @@ import AVFoundation
 import AVKit
 class MyVideoPlayerViewController: AVPlayerViewController{
     
+    var moved = false
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         // Create and initialize a tap gesture
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        let tapRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("handleTap:"))
            
-        tapRecognizer.numberOfTapsRequired = 1;
-        
         view.addGestureRecognizer(tapRecognizer);
     }
- 
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        moved = true
+    }
+    
+   
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if(moved){
+            (self.player as? AVQueuePlayer)?.advanceToNextItem()
+        }else{
+            (self.player as? AVQueuePlayer)?.pause()
+        }
+        moved = false
+    }
     @IBAction func handleTap(sender: AnyObject) {
         self.player?.pause()
 
