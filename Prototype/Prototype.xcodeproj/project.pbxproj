@@ -16,11 +16,17 @@
 		56B060C81AD97085008FE9FB /* ZDT_DownloadVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060C71AD97085008FE9FB /* ZDT_DownloadVideoTests.swift */; };
 		56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D21AD971DC008FE9FB /* DownloadButton.swift */; };
 		56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D41AD9739A008FE9FB /* ProgressView.swift */; };
+		A3AF849AC16A5A09E3368A05 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 319E7EF8D6F0ACE840259E91 /* libPods.a */; };
 		C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */; };
 		C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF31BCC18FB00725BA9 /* AVKit.framework */; };
+		C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */; settings = {ASSET_TAGS = (); }; };
 		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; settings = {ASSET_TAGS = (); }; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseVideoViewController.swift; path = ../ChooseVideoViewController.swift; sourceTree = "<group>"; };
+		319E7EF8D6F0ACE840259E91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D347A4A6869311742B6F1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		56B060AC1AD97085008FE9FB /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B060B01AD97085008FE9FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56B060B11AD97085008FE9FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,12 +55,19 @@
 		56B060C71AD97085008FE9FB /* ZDT_DownloadVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZDT_DownloadVideoTests.swift; sourceTree = "<group>"; };
 		56B060D21AD971DC008FE9FB /* DownloadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		56B060D41AD9739A008FE9FB /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		8CAFFCB061A365CD8FC601BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C90C8FEA1BCC0FE900725BA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C90C8FF31BCC18FB00725BA9 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		C947D55C1BD2B3B30040FD6D /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
+		C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ClientService.swift; sourceTree = "<group>"; };
 		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +76,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */,
+				DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */,
+				DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */,
+				DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */,
 				C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */,
+				A3AF849AC16A5A09E3368A05 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,15 +94,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059616A3CD5EB441AFC71080 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFFCB061A365CD8FC601BD /* Pods.debug.xcconfig */,
+				52D347A4A6869311742B6F1B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		56B060A31AD97085008FE9FB = {
 			isa = PBXGroup;
 			children = (
-				56B060AE1AD97085008FE9FB /* Prototype */,
-				56B060C41AD97085008FE9FB /* PrototypeTests */,
-				56B060AD1AD97085008FE9FB /* Products */,
+				DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */,
+				DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */,
+				DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */,
 				C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */,
 				C90C8FF31BCC18FB00725BA9 /* AVKit.framework */,
 				C90C8FEA1BCC0FE900725BA9 /* MediaPlayer.framework */,
+				56B060AE1AD97085008FE9FB /* Prototype */,
+				56B060C41AD97085008FE9FB /* PrototypeTests */,
+				56B060AD1AD97085008FE9FB /* Products */,
+				059616A3CD5EB441AFC71080 /* Pods */,
+				A921AD480A48B6071C3E7376 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,10 +138,13 @@
 				43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
+				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
+				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060AF1AD97085008FE9FB /* Supporting Files */,
+				C947D55C1BD2B3B30040FD6D /* bridging.h */,
 			);
 			name = Prototype;
 			path = "ZDT-DownloadVideo";
@@ -150,6 +186,14 @@
 			name = "Custom views";
 			sourceTree = "<group>";
 		};
+		A921AD480A48B6071C3E7376 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				319E7EF8D6F0ACE840259E91 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56B060CB1AD97085008FE9FB /* Build configuration list for PBXNativeTarget "Prototype" */;
 			buildPhases = (
+				C4BBA2D8B4C4B837E8CA085C /* Check Pods Manifest.lock */,
 				56B060A81AD97085008FE9FB /* Sources */,
 				56B060A91AD97085008FE9FB /* Frameworks */,
 				56B060AA1AD97085008FE9FB /* Resources */,
+				0A2BAB06447D56E78EBA4304 /* Embed Pods Frameworks */,
+				38E9C83504639F3F7D9A1423 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,11 +295,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A2BAB06447D56E78EBA4304 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38E9C83504639F3F7D9A1423 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4BBA2D8B4C4B837E8CA085C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		56B060A81AD97085008FE9FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
@@ -260,6 +356,7 @@
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,
+				C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,19 +477,30 @@
 		};
 		56B060CC1AD97085008FE9FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CAFFCB061A365CD8FC601BD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ZDT-DownloadVideo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Prototype;
 				PRODUCT_NAME = Prototype;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "ZDT-DownloadVideo/bridging.h";
 			};
 			name = Debug;
 		};
 		56B060CD1AD97085008FE9FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D347A4A6869311742B6F1B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ZDT-DownloadVideo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Prototype;

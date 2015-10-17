@@ -10,9 +10,11 @@ import UIKit
 import MobileCoreServices
 import AVKit
 import AVFoundation
+import FBSDKCoreKit
+import FBSDKShareKit
+import FBSDKLoginKit
 
-
-class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource , UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
 
@@ -26,7 +28,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     private var totalDownloaded = [Int: Int64]()
 
     private var listTasks: [NSURLSessionDownloadTask] = []
-    private var listURLs: [NSURL] = [NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/20151011_222027.mp4")!,NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/20151011_221546.mp4")!]
+    private var listURLs: [NSURL] = [NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group1/20151011_222027.mp4")!,NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group1/20151011_221546.mp4")!]
     
     
     
@@ -121,12 +123,37 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     // MARK: view methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:420e4e3a-8411-4352-9b63-5f3a7d5760da")
+        
+        let defaultServiceConfiguration = AWSServiceConfiguration(
+            region: AWSRegionType.USWest2, credentialsProvider: credentialsProvider)
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
         addGradientBackgroundLayer()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 90, height: 90)
+        if (FBSDKAccessToken.currentAccessToken() == nil) {
+            let vc = LoginViewController()
+            self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
+        }
         
     }
+    override func viewDidAppear(animated: Bool) {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                
+                if ((error) != nil) {
+                    print("Error: \(error)")
+                } else {
+                    print("fetched user: \(result)")
+                }
+            })
+        }
+    }
+    
     
     func addGradientBackgroundLayer() {
         let gradientLayer = CAGradientLayer()
@@ -152,12 +179,25 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
-        cell.title?.text = "Group \(indexPath.row)"
+        cell.title?.text = "Group \(indexPath.item)"
         cell.pinImage?.image = UIImage(named: "securitymonkeyHead.png")
+        let cSelector : Selector = "tapped:"
+        cell.tag = indexPath.item
+        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
+        cell.addGestureRecognizer(tap)
         return cell
     }
-    @IBAction func initiateDownload(sender: AnyObject) {
-        downloadButtonPressed()
+    
+    /*
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+           }
+    */
+    func tapped(sender: UITapGestureRecognizer) {
+        NSLog(String(sender.view!.tag))
+        self.listURLs =  S3ClientService().listFilesFromS3(sender.view!.tag)
+        if(!listURLs.isEmpty){
+            downloadButtonPressed()
+        }
     }
     
     // MARK: camera segue/methods
@@ -178,4 +218,5 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
 
     }
+
 }

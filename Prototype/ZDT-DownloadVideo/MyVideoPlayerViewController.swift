@@ -22,6 +22,8 @@ class MyVideoPlayerViewController: AVPlayerViewController{
         
     }
     
+    
+    
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         moved = true
     }
