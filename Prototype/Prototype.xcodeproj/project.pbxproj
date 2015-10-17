@@ -20,6 +20,10 @@
 		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; settings = {ASSET_TAGS = (); }; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
+		DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
+		DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */,
+				DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */,
+				DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */,
+				DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */,
 				C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +87,9 @@
 		56B060A31AD97085008FE9FB = {
 			isa = PBXGroup;
 			children = (
+				DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */,
+				DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */,
+				DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */,
 				C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */,
 				C90C8FF31BCC18FB00725BA9 /* AVKit.framework */,
 				C90C8FEA1BCC0FE900725BA9 /* MediaPlayer.framework */,
@@ -103,6 +117,7 @@
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
+				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
@@ -250,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
@@ -378,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ZDT-DownloadVideo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Prototype;
@@ -389,6 +409,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ZDT-DownloadVideo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Prototype;

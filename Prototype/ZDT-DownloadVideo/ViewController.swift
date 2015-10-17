@@ -10,7 +10,9 @@ import UIKit
 import MobileCoreServices
 import AVKit
 import AVFoundation
-
+import FBSDKCoreKit
+import FBSDKShareKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -123,8 +125,26 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 90, height: 90)
+        if (FBSDKAccessToken.currentAccessToken() == nil) {
+            let vc = LoginViewController()
+            self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
+        }
         
     }
+    override func viewDidAppear(animated: Bool) {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                
+                if ((error) != nil) {
+                    print("Error: \(error)")
+                } else {
+                    print("fetched user: \(result)")
+                }
+            })
+        }
+    }
+    
     
     func addGradientBackgroundLayer() {
         let gradientLayer = CAGradientLayer()
