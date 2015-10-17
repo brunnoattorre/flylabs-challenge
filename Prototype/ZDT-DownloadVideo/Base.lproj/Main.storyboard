@@ -75,7 +75,6 @@
                                         <connections>
                                             <outlet property="pinImage" destination="7cA-x5-EYN" id="SW0-JN-luO"/>
                                             <outlet property="title" destination="cf2-nE-Qf1" id="dfh-Cz-cVh"/>
-                                            <outletCollection property="gestureRecognizers" destination="4lD-fZ-yMa" appends="YES" id="O8n-Tf-mgb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -109,11 +108,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4lD-fZ-yMa">
-                    <connections>
-                        <action selector="initiateDownload:" destination="vXZ-lx-hvc" id="P1E-LU-hMK"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-292" y="372"/>
         </scene>
