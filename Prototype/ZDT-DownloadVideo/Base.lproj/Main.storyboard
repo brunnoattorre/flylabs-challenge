@@ -73,6 +73,10 @@
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xdV-n2-jlR"/>
+                                    <segue destination="NwT-wk-2vu" kind="push" id="jhx-J6-Xpq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,6 +97,38 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-292" y="372"/>
+        </scene>
+        <!--Choose Video View Controller-->
+        <scene sceneID="yLT-ou-VBk">
+            <objects>
+                <viewController id="NwT-wk-2vu" customClass="ChooseVideoViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yVA-tt-Z7j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="syi-xJ-yv8">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aq1-xp-3ew"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="Wr5-w1-bRA"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vj7-Mf-ERU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="1005"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7ZF-9E-Abd">
+            <objects>
+                <viewController id="Tmq-Ah-rx1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LWe-VH-AQf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LNQ-OB-L2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="1007"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="axf-15-Rb0">

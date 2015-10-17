@@ -12,7 +12,7 @@ import AVKit
 import AVFoundation
 
 
-class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
 
@@ -92,17 +92,19 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
-            let fileManager = NSFileManager.defaultManager()
-            let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
-            let destination = segue.destinationViewController as!
-            AVPlayerViewController
-            var listVideos = [AVPlayerItem]()
-            for task in listTasks{
-                let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
-                listVideos.append(item)
+            if(segue.identifier == "segue1") {
+                let fileManager = NSFileManager.defaultManager()
+                let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
+                let destination = segue.destinationViewController as!
+                AVPlayerViewController
+                var listVideos = [AVPlayerItem]()
+                for task in listTasks{
+                    let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
+                    listVideos.append(item)
+                }
+                destination.player = AVQueuePlayer(items: listVideos)
+                destination.player?.play()
             }
-            destination.player = AVQueuePlayer(items: listVideos)
-            destination.player?.play()
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
@@ -158,4 +160,22 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         downloadButtonPressed()
     }
     
+    // MARK: camera segue/methods
+    
+    @IBAction func recordVideo(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                imagePicker.mediaTypes = [kUTTypeVideo as String]
+                imagePicker.allowsEditing = false
+                
+                self.navigationController!.pushViewController(imagePicker, animated: true)
+        }
+
+    }
 }
