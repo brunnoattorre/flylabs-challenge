@@ -14,18 +14,13 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(NSHomeDirectory())
-        // Do any additional setup after loading the view.
         
-//        let backButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "performBackNavigation")
-//        let sendButton = UIBarButtonItem(title: "Send", style: UIBarButtonItemStyle.Plain, target: self, action: "")
-//        self.navigationItem.leftBarButtonItem = backButton
-//        self.navigationItem.rightBarButtonItem = sendButton
+        // Do any additional setup after loading the view.
         
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        picker.mediaTypes = [kUTTypeMovie as String]
+        //picker.mediaTypes = [kUTTypeMovie as String]
         picker.allowsEditing = true
         self.presentViewController(picker, animated: false, completion: nil)
     }
@@ -35,11 +30,9 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func performBackNavigation(){
+    @IBAction func cancel(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    @IBOutlet weak var myImage: UIImageView!
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let url = info[UIImagePickerControllerMediaURL] {
@@ -59,7 +52,7 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
         } else {
             
             picker.dismissViewControllerAnimated(true, completion: nil)
-            self.navigationController?.popViewControllerAnimated(false)
+            //self.navigationController?.popViewControllerAnimated(false)
         }
 
     }
