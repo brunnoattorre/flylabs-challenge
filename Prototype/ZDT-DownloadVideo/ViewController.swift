@@ -14,7 +14,7 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import FBSDKLoginKit
 
-class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource , UICollectionViewDelegate{
+class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource , UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var videoView: UIView!
 
@@ -94,17 +94,19 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
-            let fileManager = NSFileManager.defaultManager()
-            let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
-            let destination = segue.destinationViewController as!
-            AVPlayerViewController
-            var listVideos = [AVPlayerItem]()
-            for task in listTasks{
-                let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
-                listVideos.append(item)
+            if(segue.identifier == "segue1") {
+                let fileManager = NSFileManager.defaultManager()
+                let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
+                let destination = segue.destinationViewController as!
+                AVPlayerViewController
+                var listVideos = [AVPlayerItem]()
+                for task in listTasks{
+                    let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
+                    listVideos.append(item)
+                }
+                destination.player = AVQueuePlayer(items: listVideos)
+                destination.player?.play()
             }
-            destination.player = AVQueuePlayer(items: listVideos)
-            destination.player?.play()
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
@@ -129,9 +131,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             region: AWSRegionType.USWest2, credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
         addGradientBackgroundLayer()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 90, height: 90)
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: 90, height: 90)
         if (FBSDKAccessToken.currentAccessToken() == nil) {
             let vc = LoginViewController()
             self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
@@ -169,6 +170,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         return 1
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(10, 30, 15, 30)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
@@ -176,9 +181,18 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         return .LightContent
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // choose reusable cell type
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
+
+        // set title and image
         cell.title?.text = "Group \(indexPath.item)"
-        cell.pinImage?.image = UIImage(named: "securitymonkeyHead.png")
+        cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+        
+        // round the image
+        cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
+        cell.pinImage.clipsToBounds = true
+        
+        // give it a gesture recognizer
         let cSelector : Selector = "tapped:"
         cell.tag = indexPath.item
         let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
@@ -198,7 +212,23 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
     }
     
+    // MARK: camera segue/methods
     
-    
-    
+    @IBAction func recordVideo(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                imagePicker.mediaTypes = [kUTTypeVideo as String]
+                imagePicker.allowsEditing = false
+                
+                self.navigationController!.pushViewController(imagePicker, animated: true)
+        }
+
+    }
+
 }
