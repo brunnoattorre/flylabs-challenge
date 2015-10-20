@@ -134,18 +134,17 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				56B060B11AD97085008FE9FB /* AppDelegate.swift */,
-				56B060D11AD971C8008FE9FB /* Custom views */,
+				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
-				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
 				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
+				56B060D11AD971C8008FE9FB /* Custom views */,
 				56B060AF1AD97085008FE9FB /* Supporting Files */,
 				C947D55C1BD2B3B30040FD6D /* bridging.h */,
 			);
@@ -156,6 +155,7 @@
 		56B060AF1AD97085008FE9FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56B060B11AD97085008FE9FB /* AppDelegate.swift */,
 				C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */,
 				56B060B01AD97085008FE9FB /* Info.plist */,
 			);

@@ -21,8 +21,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
 
         addGradientBackgroundLayer()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 90, height: 90)
     }
     
     // MARK: - Collection View Setup
@@ -48,21 +46,42 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         return 1
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(15, 30, 15, 30)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        return CGSizeMake(90, 90)
+//    }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
-        cell.title?.text = "Group \(indexPath.item)"
-        cell.pinImage?.image = UIImage(named: "securitymonkeyHead.png")
+        // choose reusable cell type
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("recipientCell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        // set title and image
+        if(indexPath.item == 0) {
+            cell.title?.text = "New Refly"
+            cell.pinImage?.image = UIImage(named: "newRefly.png")
+        } else {
+            cell.title?.text = "Group \(indexPath.item)"
+            cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+        }
+        
+        // round the image
+        cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
+        cell.pinImage.clipsToBounds = true
+        
+        // give it a gesture recognizer
         let cSelector : Selector = "tapped:"
         cell.tag = indexPath.item
-        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
+        let tap = UITapGestureRecognizer.init(target: self, action: nil)
         cell.addGestureRecognizer(tap)
         return cell
     }
