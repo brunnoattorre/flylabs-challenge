@@ -67,12 +67,15 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("recipientCell", forIndexPath: indexPath) as! CollectionViewCell
         
         // set title and image
+        var cSelector : Selector = nil
         if(indexPath.item == 0) {
             cell.title?.text = "New Refly"
             cell.pinImage?.image = UIImage(named: "newRefly.png")
+            cSelector = "chooseNewGroupMembers:"
         } else {
             cell.title?.text = "Group \(indexPath.item)"
             cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+            cSelector = "tapped:"
         }
         
         // round the image
@@ -80,7 +83,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         cell.pinImage.clipsToBounds = true
         
         // give it a gesture recognizer
-        let cSelector : Selector = "tapped:"
         cell.tag = indexPath.item
         let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
         cell.addGestureRecognizer(tap)
@@ -96,7 +98,11 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         S3ClientService().uploadToS3( documents.URLByAppendingPathComponent(String(1) + ".mov"), groupId: sender.view!.tag, videoId: 1)
         
     }
-
+    
+    func chooseNewGroupMembers(sender: UITapGestureRecognizer){
+        performSegueWithIdentifier("chooseNewGroupFriends", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

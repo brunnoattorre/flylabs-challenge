@@ -230,11 +230,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZDT-DownloadVideo/ChooseGroupRecipientsViewController.swift"
-            timestampString = "467089199.164405"
+            timestampString = "467156450.019397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -272,6 +272,22 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "uploadToS3(_:groupId:videoId:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZDT-DownloadVideo/ChooseGroupRecipientsViewController.swift"
+            timestampString = "467156457.275716"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "tapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
