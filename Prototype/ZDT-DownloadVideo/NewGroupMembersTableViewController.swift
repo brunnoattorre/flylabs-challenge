@@ -17,7 +17,8 @@ class NewGroupMembersTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,27 +26,45 @@ class NewGroupMembersTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
+    @IBAction func cancelNewGroup(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func createNewGroup(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return 20
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell") as! FriendTableViewCell
 
-        // Configure the cell...
+        cell.profilePic?.image = UIImage(named: "securitymonkeyhead.png")
+        cell.friendName?.text = "Monkey"
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
+        
+        if(cell.checkmark.image == nil) {
+            cell.checkmark.image = UIImage(named: "checkmark.png")
+        } else {
+            cell.checkmark.image = nil
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

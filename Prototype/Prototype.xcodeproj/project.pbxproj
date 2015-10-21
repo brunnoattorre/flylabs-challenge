@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438EE0271BD6E47A00E1DFEB /* NewGroupMembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		43BFA1D11BD2A35900385F8C /* ChooseVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060B11AD97085008FE9FB /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		319E7EF8D6F0ACE840259E91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupMembersTableViewController.swift; sourceTree = "<group>"; };
+		438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseVideoViewController.swift; path = ../ChooseVideoViewController.swift; sourceTree = "<group>"; };
 		43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGroupRecipientsViewController.swift; sourceTree = "<group>"; };
 		52D347A4A6869311742B6F1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
+				438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */,
+				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
@@ -354,7 +360,9 @@
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
+				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
+				438EE0271BD6E47A00E1DFEB /* NewGroupMembersTableViewController.swift in Sources */,
 				43BFA1D11BD2A35900385F8C /* ChooseVideoViewController.swift in Sources */,
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,

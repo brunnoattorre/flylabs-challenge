@@ -20,7 +20,7 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        //picker.mediaTypes = [kUTTypeMovie as String]
+//        picker.mediaTypes = [kUTTypeMovie as String]
         picker.allowsEditing = true
         self.presentViewController(picker, animated: false, completion: nil)
     }
