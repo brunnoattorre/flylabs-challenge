@@ -82,11 +82,20 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         // give it a gesture recognizer
         let cSelector : Selector = "tapped:"
         cell.tag = indexPath.item
-        let tap = UITapGestureRecognizer.init(target: self, action: nil)
+        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
         cell.addGestureRecognizer(tap)
         return cell
     }
     
+    func tapped(sender: UITapGestureRecognizer) {
+        NSLog(String(sender.view!.tag))
+        let fileManager = NSFileManager.defaultManager()
+        
+        let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
+        
+        S3ClientService().uploadToS3( documents.URLByAppendingPathComponent(String(1) + ".mov"), groupId: sender.view!.tag, videoId: 1)
+        
+    }
 
     /*
     // MARK: - Navigation

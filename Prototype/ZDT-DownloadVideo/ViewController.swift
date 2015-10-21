@@ -101,6 +101,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
                 AVPlayerViewController
                 var listVideos = [AVPlayerItem]()
                 for task in listTasks{
+                    NSLog(String(task.taskIdentifier))
                     let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
                     listVideos.append(item)
                 }

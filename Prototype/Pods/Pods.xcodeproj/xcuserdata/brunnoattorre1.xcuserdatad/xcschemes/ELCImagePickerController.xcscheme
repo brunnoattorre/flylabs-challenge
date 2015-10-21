@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C891D83C343999989C18F150'
+               BlueprintIdentifier = 'C63ABCAE4DEC4754B34E3E8E'
                BlueprintName = 'ELCImagePickerController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libELCImagePickerController.a'>
