@@ -49,7 +49,7 @@ class S3ClientService{
             if let listObjectsOutput = task.result as? AWSS3ListObjectsOutput {
                 if let contents = listObjectsOutput.contents as? [AWSS3Object] {
                     for s3Object in contents {
-                        if(s3Object.key.containsString(".mp4")){
+                        if(s3Object.key.containsString(".mp4") || s3Object.key.containsString(".mov") ){
                             NSLog(s3Object.key)
                             self.urls.append(NSURL(string: String("https://s3-us-west-2.amazonaws.com/flylabschallenge/" + s3Object.key))!)
                         }
