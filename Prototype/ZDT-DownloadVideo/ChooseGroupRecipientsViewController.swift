@@ -10,6 +10,7 @@ import UIKit
 
 class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var url: NSURL = NSURL();
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -74,6 +75,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         } else {
             cell.title?.text = "Group \(indexPath.item)"
             cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+            cSelector = "tapped:"
         }
         
         // round the image
@@ -87,11 +89,20 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         return cell
     }
     
+    func tapped(sender: UITapGestureRecognizer) {
+        NSLog(String(sender.view!.tag))
+        let fileManager = NSFileManager.defaultManager()
+        
+        let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
+        
+        S3ClientService().uploadToS3( documents.URLByAppendingPathComponent(String(1) + ".mov"), groupId: sender.view!.tag, videoId: 1)
+        
+    }
+    
     func chooseNewGroupMembers(sender: UITapGestureRecognizer){
         performSegueWithIdentifier("chooseNewGroupFriends", sender: self)
     }
     
-
     /*
     // MARK: - Navigation
 

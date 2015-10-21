@@ -155,7 +155,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send" id="Wr5-w1-bRA">
                             <connections>
-                                <segue destination="Tmq-Ah-rx1" kind="push" id="zEJ-fl-uW7"/>
+                                <segue destination="Tmq-Ah-rx1" kind="push" identifier="segueToGroupSelection" id="zEJ-fl-uW7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

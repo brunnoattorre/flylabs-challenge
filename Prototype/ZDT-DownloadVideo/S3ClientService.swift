@@ -14,47 +14,22 @@ class S3ClientService{
     var filesize:Int64 = 0
     var urls : [NSURL] = []
     
-    func uploadToS3(path : String, groupId: Int, videoId: Int){
-        
-        
-        // once the image is saved we can use the path to create a local fileurl
-        var url:NSURL = NSURL(fileURLWithPath: path)
-        
-        // next we set up the S3 upload request manager
-        var uploadRequest = AWSS3TransferManagerUploadRequest()
-        // set the bucket
-        uploadRequest?.bucket = "flylabschallenge"
-        // I want this image to be public to anyone to view it so I'm setting it to Public Read
-        uploadRequest?.ACL = AWSS3ObjectCannedACL.PublicRead
-        // set the image's name that will be used on the s3 server. I am also creating a folder to place the image in
-        uploadRequest?.key = "Group" + String(groupId) + "/" + String(videoId) + ".mp4"
-        // set the content type
-        uploadRequest?.contentType = "video/mp4"
-        // and finally set the body to the local file path
-        uploadRequest?.body = url;
-        
-        // we will track progress through an AWSNetworkingUploadProgressBlock
-        uploadRequest?.uploadProgress = {[unowned self](bytesSent:Int64, totalBytesSent:Int64, totalBytesExpectedToSend:Int64) in
-            
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.amountUploaded = totalBytesSent
-                self.filesize = totalBytesExpectedToSend;
-                self.update()
-                
+    func uploadToS3(path : NSURL, groupId: Int, videoId: Int){
+        // Get the file using url loading mechanisms to get the mime type.
+        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group2/1.mov")
+        let urlRequest = NSMutableURLRequest(URL: url!)
+        urlRequest.HTTPMethod = "PUT";
+        urlRequest.HTTPBody = NSData(contentsOfURL: path);
+        urlRequest.setValue("video/mov", forHTTPHeaderField: "Content-Type")
+        let s3Manager = AFAmazonS3Manager()
+        s3Manager.requestSerializer.region = AFAmazonS3USWest2Region;
+        s3Manager.requestSerializer.bucket = "flylabschallenge";
+        let operation = s3Manager.HTTPRequestOperationWithRequest(urlRequest, success: nil, failure: {( operation : AFHTTPRequestOperation,  error:NSError) in
+            NSLog(String(error))
             })
-        }
         
-        // now the upload request is set up we can creat the transfermanger, the credentials are already set up in the app delegate
-        var transferManager:AWSS3TransferManager = AWSS3TransferManager.defaultS3TransferManager()
-        // start the upload
-        transferManager.upload(uploadRequest).continueWithBlock { (task) -> AnyObject! in
-            if task.error != nil {
-                NSLog("Error: \(task.error)")
-            } else {
-                NSLog("Upload successful")
-            }
-            return nil
-        }
+        s3Manager.operationQueue.addOperation(operation)
+    
     }
     
     func listFilesFromS3(groupId: Int) -> [NSURL]{
