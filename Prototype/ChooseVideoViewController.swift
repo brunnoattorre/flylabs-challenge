@@ -12,6 +12,9 @@ import AVKit
 import MobileCoreServices
 class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    private var url: NSURL = NSURL();
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +40,7 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let url = info[UIImagePickerControllerMediaURL] {
             
+            self.url = url as! NSURL
             let player = AVPlayer.init(URL: url as! NSURL)
             let playerController = AVPlayerViewController()
             
@@ -62,6 +66,13 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
         self.navigationController?.popViewControllerAnimated(false)
     }
 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "segueToGroupSelection") {
+            let svc = segue.destinationViewController as! ChooseGroupRecipientsViewController;
+            svc.url = self.url
+        }
+    }
     /*
     // MARK: - Navigation
 

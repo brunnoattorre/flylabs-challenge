@@ -75,7 +75,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="F0Q-nG-YGb" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
@@ -155,7 +155,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send" id="Wr5-w1-bRA">
                             <connections>
-                                <segue destination="Tmq-Ah-rx1" kind="push" id="zEJ-fl-uW7"/>
+                                <segue destination="Tmq-Ah-rx1" kind="push" identifier="segueToGroupSelection" id="zEJ-fl-uW7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

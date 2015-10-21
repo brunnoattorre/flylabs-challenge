@@ -14,11 +14,11 @@ class S3ClientService{
     var filesize:Int64 = 0
     var urls : [NSURL] = []
     
-    func uploadToS3(path : String, groupId: Int, videoId: Int){
+    func uploadToS3(path : NSURL, groupId: Int, videoId: Int){
         
         
         // once the image is saved we can use the path to create a local fileurl
-        var url:NSURL = NSURL(fileURLWithPath: path)
+        var url:NSURL = path
         
         // next we set up the S3 upload request manager
         var uploadRequest = AWSS3TransferManagerUploadRequest()

@@ -10,6 +10,7 @@ import UIKit
 
 class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var url: NSURL = NSURL();
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
