@@ -16,7 +16,7 @@ class S3ClientService{
     
     func uploadToS3(path : NSURL, groupId: Int, videoId: Int){
         // Get the file using url loading mechanisms to get the mime type.
-        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group2/1.mov")
+        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group" + String(groupId) + "/" + String(videoId) + ".mov")
         let urlRequest = NSMutableURLRequest(URL: url!)
         urlRequest.HTTPMethod = "PUT";
         urlRequest.HTTPBody = NSData(contentsOfURL: path);
