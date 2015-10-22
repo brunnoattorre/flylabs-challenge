@@ -10,6 +10,7 @@ import UIKit
 
 class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var groupList: [Int] = []
     var url: NSURL = NSURL();
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -91,18 +92,22 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
     
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
-        let fileManager = NSFileManager.defaultManager()
-        
-        let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
-        
-        S3ClientService().uploadToS3( documents.URLByAppendingPathComponent(String(1) + ".mov"), groupId: sender.view!.tag, videoId: 1)
-        
+        groupList.append(sender.view!.tag)
     }
     
     func chooseNewGroupMembers(sender: UITapGestureRecognizer){
         performSegueWithIdentifier("chooseNewGroupFriends", sender: self)
     }
     
+    func upload (){
+        for group in groupList {
+            S3ClientService().uploadToS3( self.url, groupId: group, videoId: 1)
+        }
+    }
+    @IBAction func sendSelected(sender: AnyObject) {
+        upload()
+        performSegueWithIdentifier("backToBeginning", sender: self)
+    }
     /*
     // MARK: - Navigation
 

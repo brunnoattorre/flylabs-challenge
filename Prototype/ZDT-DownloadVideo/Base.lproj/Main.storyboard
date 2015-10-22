@@ -229,10 +229,17 @@
                             <constraint firstItem="LLB-6Z-syP" firstAttribute="top" secondItem="THM-p8-Oj1" secondAttribute="bottom" id="sAH-z6-bxV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="773-2z-xJS"/>
+                    <navigationItem key="navigationItem" id="773-2z-xJS">
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="xPB-eM-SfG">
+                            <connections>
+                                <action selector="sendSelected:" destination="Tmq-Ah-rx1" id="taV-qX-2wV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="THM-p8-Oj1" id="wcp-ph-hSm"/>
                         <segue destination="Nhy-v6-Fdy" kind="modal" identifier="chooseNewGroupFriends" id="lce-rJ-F38"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="backToBeginning" id="JkG-Gc-qkI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNQ-OB-L2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +259,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-xx-hlS">
@@ -354,4 +361,7 @@
             <point key="canvasLocation" x="635" y="1005"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JkG-Gc-qkI"/>
+    </inferredMetricsTieBreakers>
 </document>
