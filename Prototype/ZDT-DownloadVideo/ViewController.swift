@@ -216,21 +216,20 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     // MARK: camera segue/methods
     
-    @IBAction func recordVideo(sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(
-            UIImagePickerControllerSourceType.Camera) {
-                
-                let imagePicker = UIImagePickerController()
-                
-                imagePicker.delegate = self
-                imagePicker.sourceType =
-                    UIImagePickerControllerSourceType.Camera
-                imagePicker.mediaTypes = [kUTTypeVideo as String]
-                imagePicker.allowsEditing = false
-                
-                self.navigationController!.pushViewController(imagePicker, animated: true)
-        }
-
-    }
-
+//    @IBAction func recordVideo(sender: AnyObject) {
+//        if UIImagePickerController.isSourceTypeAvailable(
+//            UIImagePickerControllerSourceType.Camera) {
+//                
+//                let imagePicker = UIImagePickerController()
+//                
+//                imagePicker.delegate = self
+//                imagePicker.sourceType =
+//                    UIImagePickerControllerSourceType.Camera
+//                imagePicker.mediaTypes = [kUTTypeVideo as String]
+//                imagePicker.allowsEditing = false
+//                
+//                self.navigationController!.pushViewController(imagePicker, animated: true)
+//        }
+//
+//    }
 }
