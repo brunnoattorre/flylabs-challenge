@@ -25,6 +25,7 @@ class FlyLabsPlayer: AVQueuePlayer{
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { action in
                 switch action.style{
                 case .Default:
+                    self.viewController.paused = true
                     self.viewController.performSegueWithIdentifier("chooseVideoAfterVideoPlayer", sender: self.viewController)
                 case .Cancel:
                     print("cancel")

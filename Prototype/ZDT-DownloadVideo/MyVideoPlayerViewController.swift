@@ -26,7 +26,10 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.player?.pause()
+        if(!paused){
+            self.player?.pause()
+        }
+        super.viewDidDisappear(animated)
     }
     
     
