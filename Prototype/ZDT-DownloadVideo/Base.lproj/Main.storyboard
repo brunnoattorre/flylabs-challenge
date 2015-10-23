@@ -33,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="-292" y="-267"/>
         </scene>
-        <!--Title TBD-->
+        <!--Flap-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,7 +122,7 @@
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title TBD" id="27V-oi-hj0"/>
+                    <navigationItem key="navigationItem" title="Flap" id="27V-oi-hj0"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
