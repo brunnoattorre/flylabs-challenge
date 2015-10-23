@@ -13,6 +13,7 @@ import AVFoundation
 import FBSDKCoreKit
 import FBSDKShareKit
 import FBSDKLoginKit
+import AWSS3
 
 class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource , UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
