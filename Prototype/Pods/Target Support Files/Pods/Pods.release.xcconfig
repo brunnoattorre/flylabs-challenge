@@ -1,5 +1,8 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFAmazonS3Manager" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AWSCore" "${PODS_ROOT}/Headers/Public/AWSS3" "${PODS_ROOT}/Headers/Public/ELCImagePickerController" "${PODS_ROOT}/Headers/Public/JTSImageViewController"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFAmazonS3Manager" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/AWSCore" -isystem "${PODS_ROOT}/Headers/Public/AWSS3" -isystem "${PODS_ROOT}/Headers/Public/ELCImagePickerController" -isystem "${PODS_ROOT}/Headers/Public/JTSImageViewController"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"AFAmazonS3Manager" -l"AFNetworking" -l"AWSCore" -l"AWSS3" -l"ELCImagePickerController" -l"JTSImageViewController" -l"sqlite3" -l"z" -framework "Accelerate" -framework "AssetsLibrary" -framework "CoreGraphics" -framework "CoreLocation" -framework "Foundation" -framework "ImageIO" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFAmazonS3Manager.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AWSCore.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/AWSS3.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/ELCImagePickerController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JTSImageViewController.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "AFAmazonS3Manager" -framework "AFNetworking" -framework "AWSCore" -framework "AWSS3" -framework "Alamofire" -framework "ELCImagePickerController" -framework "JTSImageViewController"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
 PODS_ROOT = ${SRCROOT}/Pods

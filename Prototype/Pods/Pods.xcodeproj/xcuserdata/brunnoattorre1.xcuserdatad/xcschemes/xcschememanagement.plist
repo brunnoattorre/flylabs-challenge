@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ELCImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>36ED7EE6290D1997D292E1B4DAA532B7</key>
+		<key>1A8130B73C36E80883472945AE56A99E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A398DD60EC439958D999EA713D3CF6D</key>
+		<key>1B29865314F496AB43CDB13E4473347D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D1D316CB9BD9BBE4169B95795828500</key>
+		<key>298F4068BC4649CB0656ADBB71D2F680</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EDBC06B3D447B9192D12E139BD4ACFE</key>
+		<key>3B41A9B1D49827D58E203AF61D34F608</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>859BCFC6B3FF26CF5B1CB32BAC63C183</key>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94CD4A21A71519CB149C0DEF5BA25467</key>
+		<key>B30E468042F86BF95EC5D103AA0E2E24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3C8A30D9238DA8287317EEEE8CD54F7</key>
+		<key>BAAA0D70CB8625EE76B9FF4FEC38566A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAE26C46CFBAF39E4C96ABF16B93D9FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
