@@ -18,79 +18,68 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1002107789850355</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1002107789850355</string>
+	<key>FacebookDisplayName</key>
+	<string>flylabchallenge</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>yourserver.com</key>
-            <dict>
-                <!--Include to allow subdomains-->
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <!--Include to allow insecure HTTP requests-->
-                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <!--Include to specify minimum TLS version-->
-                <key>NSTemporaryExceptionMinimumTLSVersion</key>
-                <string>TLSv1.1</string>
-            </dict>
-        </dict>
-    </dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb1002107789850355</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1002107789850355</string>
-    <key>FacebookDisplayName</key>
-    <string>flylabchallenge</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>refly-bd.herokuapp.com</key>
+			<key>akamaihd.net</key>
 			<dict>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 			<key>facebook.com</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 			</dict>
 			<key>fbcdn.net</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>refly-bd.herokuapp.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 			</dict>
 			<key>s3-us-west-2.amazonaws.com</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
-			</dict>
-			<key>akamaihd.net</key>
-			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<false/>
 			</dict>
 		</dict>
 	</dict>
@@ -109,13 +98,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>

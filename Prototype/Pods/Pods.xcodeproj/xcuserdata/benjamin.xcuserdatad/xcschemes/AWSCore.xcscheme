@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E3C8A30D9238DA8287317EEEE8CD54F7"
-               BuildableName = "libAWSCore.a"
+               BlueprintIdentifier = "BAAA0D70CB8625EE76B9FF4FEC38566A"
+               BuildableName = "AWSCore.framework"
                BlueprintName = "AWSCore"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E3C8A30D9238DA8287317EEEE8CD54F7"
-            BuildableName = "libAWSCore.a"
+            BlueprintIdentifier = "BAAA0D70CB8625EE76B9FF4FEC38566A"
+            BuildableName = "AWSCore.framework"
             BlueprintName = "AWSCore"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E3C8A30D9238DA8287317EEEE8CD54F7"
-            BuildableName = "libAWSCore.a"
+            BlueprintIdentifier = "BAAA0D70CB8625EE76B9FF4FEC38566A"
+            BuildableName = "AWSCore.framework"
             BlueprintName = "AWSCore"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
