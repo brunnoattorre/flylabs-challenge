@@ -45,15 +45,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
                                 <rect key="frame" x="240" y="28" width="80" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KRs-ie-EPh" secondAttribute="height" multiplier="1:1" id="i9U-Mi-zOb"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
-                                <rect key="frame" x="0.0" y="150" width="320" height="418"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
+                                <rect key="frame" x="0.0" y="188" width="320" height="380"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH8-bG-0vO">
@@ -96,10 +96,14 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="41" y="82" width="238" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="82" width="320" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="kEi-h9-l9W"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Record">
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -110,10 +114,9 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="KRs-ie-EPh" secondAttribute="trailing" constant="100" id="39V-bu-qTE"/>
-                            <constraint firstItem="X62-KQ-MxM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="41" id="NSF-t5-HBe"/>
-                            <constraint firstItem="iX3-oI-40R" firstAttribute="top" secondItem="X62-KQ-MxM" secondAttribute="bottom" constant="8" id="bIT-Xg-fUH"/>
-                            <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" constant="41" id="bSV-oh-6il"/>
-                            <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="KRs-ie-EPh" secondAttribute="bottom" constant="-26" id="cGH-eg-RVz"/>
+                            <constraint firstItem="iX3-oI-40R" firstAttribute="top" secondItem="X62-KQ-MxM" secondAttribute="bottom" constant="16" id="Hyy-z8-4fn"/>
+                            <constraint firstItem="X62-KQ-MxM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="KMR-dJ-8K4"/>
+                            <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" id="QVt-a1-hJ4"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
                             <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="18" id="jgD-Hd-tmG"/>
@@ -126,6 +129,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
                         <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
+                        <outlet property="recordButton" destination="X62-KQ-MxM" id="8bB-ty-QDZ"/>
                         <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" animates="NO" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>

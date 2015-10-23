@@ -23,8 +23,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         
         collectionView.delegate = self
 
-        addGradientBackgroundLayer()
-        
         // Call the uiimagepicker for the camera
         let picker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(
@@ -81,19 +79,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     }
     
     // MARK: - Collection View Setup
-    
-    func addGradientBackgroundLayer() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.frame
-        
-        let colorTop: AnyObject = UIColor(red: 73.0/255.0, green: 223.0/255.0, blue: 185.0/255.0, alpha: 1.0).CGColor
-        let colorBottom: AnyObject = UIColor(red: 36.0/255.0, green: 115.0/255.0, blue: 192.0/255.0, alpha: 1.0).CGColor
-        gradientLayer.colors = [colorTop, colorBottom]
-        
-        gradientLayer.locations = [0.0, 1.0]
-        view.layer.insertSublayer(gradientLayer, atIndex: 0)
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

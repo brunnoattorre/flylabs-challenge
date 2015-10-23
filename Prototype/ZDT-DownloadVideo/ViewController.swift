@@ -131,8 +131,14 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     
     // MARK: view methods
+    
+    @IBOutlet weak var recordButton: DownloadButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.whiteColor()
+        self.recordButton.backgroundColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
         
         collectionView.delegate = self
         let credentialsProvider = AWSCognitoCredentialsProvider(
@@ -141,7 +147,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         let defaultServiceConfiguration = AWSServiceConfiguration(
             region: AWSRegionType.USWest2, credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = defaultServiceConfiguration
-        addGradientBackgroundLayer()
+
 //        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 //        layout.itemSize = CGSize(width: 90, height: 90)
         if (FBSDKAccessToken.currentAccessToken() == nil) {
@@ -219,10 +225,6 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         return cell
     }
     
-    /*
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-           }
-    */
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
         self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage

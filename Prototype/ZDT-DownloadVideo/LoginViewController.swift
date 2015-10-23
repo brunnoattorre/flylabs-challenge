@@ -28,6 +28,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.view.addSubview(loginView)
 
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let navBarColor = UIColor(red: 7, green: 242, blue: 241, alpha: 1)
+        self.navigationController?.navigationBar.backgroundColor = navBarColor
     }
 
     override func didReceiveMemoryWarning() {
