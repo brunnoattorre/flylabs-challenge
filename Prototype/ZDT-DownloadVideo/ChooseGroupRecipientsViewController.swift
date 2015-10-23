@@ -100,8 +100,12 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
     }
     
     func upload (){
+        let outFormatter = NSDateFormatter()
+        outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        outFormatter.dateFormat = "hh:mm"
         for group in groupList {
-            S3ClientService().uploadToS3( self.url, groupId: group, videoId: 1)
+            
+            S3ClientService().uploadToS3( self.url, groupId: group, videoId: outFormatter.stringFromDate(NSDate()))
         }
     }
     @IBAction func sendSelected(sender: AnyObject) {

@@ -14,12 +14,12 @@ class S3ClientService{
     var filesize:Int64 = 0
     var urls : [NSURL] = []
     
-    func uploadToS3(path : NSURL, groupId: Int, videoId: Int){
+    func uploadToS3(path : NSURL, groupId: Int, videoId: String){
         // Get the file using url loading mechanisms to get the mime type.
         let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group" + String(groupId) + "/" + String(videoId) + ".mov")
         let urlRequest = NSMutableURLRequest(URL: url!)
         urlRequest.HTTPMethod = "PUT";
-        urlRequest.setValue("s3:*", forHTTPHeaderField: "x-amz-grant-full-control")
+        urlRequest.setValue("public-read", forHTTPHeaderField: "x-amz-acl")
         urlRequest.HTTPBody = NSData(contentsOfURL: path);
         urlRequest.setValue("video/mov", forHTTPHeaderField: "Content-Type")
         let s3Manager = AFAmazonS3Manager()
