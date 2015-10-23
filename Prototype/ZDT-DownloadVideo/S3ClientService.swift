@@ -19,6 +19,7 @@ class S3ClientService{
         let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group" + String(groupId) + "/" + String(videoId) + ".mov")
         let urlRequest = NSMutableURLRequest(URL: url!)
         urlRequest.HTTPMethod = "PUT";
+        urlRequest.setValue("s3:*", forHTTPHeaderField: "x-amz-grant-full-control")
         urlRequest.HTTPBody = NSData(contentsOfURL: path);
         urlRequest.setValue("video/mov", forHTTPHeaderField: "Content-Type")
         let s3Manager = AFAmazonS3Manager()

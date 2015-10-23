@@ -21,17 +21,15 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         numberOfItems = ((self.player as? FlyLabsPlayer)?.items().count)!
-        (self.player as? FlyLabsPlayer)?.viewConroller = self
+        (self.player as? FlyLabsPlayer)?.viewController = self
         i = 0
     }
     
-    
-    
-    
-    func playerDidFinishPlaying(note: NSNotification) {
-        if(i >= numberOfItems){
-            self.dismissViewControllerAnimated(false, completion: nil)
+    override func viewWillDisappear(animated: Bool) {
+        if(!paused){
+            self.player?.pause()
         }
+        super.viewDidDisappear(animated)
     }
     
     
