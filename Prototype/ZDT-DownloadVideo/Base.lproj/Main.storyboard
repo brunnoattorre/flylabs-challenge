@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eO9-je-LzY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eO9-je-LzY">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-xx-hlS">
@@ -292,7 +292,7 @@
                     <navigationItem key="navigationItem" id="k89-M2-5m1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="Tmq-Ah-rx1" kind="push" id="7zW-aW-XRg"/>
+                        <segue destination="Tmq-Ah-rx1" kind="push" identifier="chooseVideoAfterVideoPlayer" id="7zW-aW-XRg"/>
                     </connections>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,6 +337,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UvK-mn-t0M"/>
+        <segue reference="7zW-aW-XRg"/>
     </inferredMetricsTieBreakers>
 </document>
