@@ -22,7 +22,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     @IBOutlet weak var videoView: UIView!
 
     @IBOutlet var progressView: ProgressView!
-
+    
+    private var uiImage: UIImageView!
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -68,9 +69,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
 
         
-        progress = Float(totalDownloadedBytes) / Float(totalBytesExpected)
+        progress = (Float(totalDownloadedBytes) / Float(totalBytesExpected))
         progressView.animateProgressViewToProgress(progress)
         progressView.updateProgressViewLabelWithProgress(progress * 100)
+        self.uiImage.alpha = CGFloat(progress * 0.4)
         
     }
     
@@ -78,7 +80,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         
         let fileManager = NSFileManager.defaultManager()
         let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
-        let fileURL = documents.URLByAppendingPathComponent(String(downloadTask.taskIdentifier) + ".mov")
+        let fileURL = documents.URLByAppendingPathComponent(String(downloadTask.taskIdentifier) + ".mp4")
         do {
             do{
                 try fileManager.removeItemAtURL(fileURL)
@@ -89,7 +91,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         } catch {
             print(error)
         }
-        if(progress == 1.0 ){
+        if(progress == 1.0  ){
+            self.uiImage.alpha = CGFloat(1)
             performSegueWithIdentifier("segue1", sender: nil)
             resetView()
         }
@@ -106,10 +109,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
                 var listVideos = [AVPlayerItem]()
                 for task in listTasks{
                     NSLog(String(task.taskIdentifier))
-                    let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mov"))
+                    let item = AVPlayerItem(URL: documents.URLByAppendingPathComponent(String(task.taskIdentifier) + ".mp4"))
                     listVideos.append(item)
                 }
-                destination.player = AVQueuePlayer(items: listVideos)
+                destination.player = FlyLabsPlayer(items: listVideos)
                 destination.player?.play()
             }
     }
@@ -217,6 +220,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     */
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
+        self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
         self.listURLs =  S3ClientService().listFilesFromS3(sender.view!.tag)
         if(!listURLs.isEmpty){
             downloadButtonPressed()

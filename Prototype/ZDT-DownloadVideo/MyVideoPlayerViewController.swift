@@ -12,6 +12,7 @@ import AVKit
 class MyVideoPlayerViewController: AVPlayerViewController{
     
     var moved = false
+    var previousX = CGFloat(0)
     var paused = false
     var numberOfItems = 2
     var i = 0
@@ -19,17 +20,18 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        numberOfItems = ((self.player as? AVQueuePlayer)?.items().count)!
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerDidFinishPlaying:", name: AVPlayerItemDidPlayToEndTimeNotification, object: self.player)
+        numberOfItems = ((self.player as? FlyLabsPlayer)?.items().count)!
+        (self.player as? FlyLabsPlayer)?.viewController = self
         i = 0
-        
     }
     
-    func playerDidFinishPlaying(note: NSNotification) {
-        if(i >= numberOfItems){
-            self.dismissViewControllerAnimated(false, completion: nil)
+    override func viewWillDisappear(animated: Bool) {
+        if(!paused){
+            self.player?.pause()
         }
+        super.viewDidDisappear(animated)
     }
+    
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         if(paused){
@@ -52,9 +54,6 @@ class MyVideoPlayerViewController: AVPlayerViewController{
         if(moved){
             i++
             (self.player as? AVQueuePlayer)?.advanceToNextItem()
-            if(i>=numberOfItems){
-                self.dismissViewControllerAnimated(false, completion: nil)
-            }
         }
         moved = false
     }

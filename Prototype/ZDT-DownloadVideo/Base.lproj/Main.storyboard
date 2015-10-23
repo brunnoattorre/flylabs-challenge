@@ -45,13 +45,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="120" y="72" width="80" height="80"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="240" y="28" width="80" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KRs-ie-EPh" secondAttribute="height" multiplier="1:1" id="i9U-Mi-zOb"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
                                 <rect key="frame" x="41" y="153" width="238" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
@@ -62,8 +63,10 @@
                                     <segue destination="NwT-wk-2vu" kind="push" id="jhx-J6-Xpq"/>
                                 </connections>
                             </button>
+=======
+>>>>>>> d46bd6bc1ae643a06800def35ead6d5103b7c5f7
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
-                                <rect key="frame" x="0.0" y="221" width="320" height="347"/>
+                                <rect key="frame" x="0.0" y="116" width="320" height="452"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH8-bG-0vO">
@@ -106,6 +109,17 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="41" y="48" width="238" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xdV-n2-jlR"/>
+                                    <segue destination="NwT-wk-2vu" kind="push" id="jhx-J6-Xpq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,7 +140,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
                         <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
-                        <segue destination="D0c-iq-l2W" kind="modal" identifier="segue1" id="WHa-LU-e89"/>
+                        <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" animates="NO" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -161,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj7-Mf-ERU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="1005"/>
+            <point key="canvasLocation" x="-292" y="1086"/>
         </scene>
         <!--Choose Group Recipients View Controller-->
         <scene sceneID="7ZF-9E-Abd">
@@ -243,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNQ-OB-L2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174" y="1007"/>
+            <point key="canvasLocation" x="227" y="1129"/>
         </scene>
         <!--New Group Members Table View Controller-->
         <scene sceneID="vrX-yx-f37">
@@ -315,9 +329,12 @@
         <!--AV Player View Controller-->
         <scene sceneID="axf-15-Rb0">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="D0c-iq-l2W" customClass="MyVideoPlayerViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspect" id="D0c-iq-l2W" customClass="MyVideoPlayerViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="k89-M2-5m1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="NwT-wk-2vu" kind="push" identifier="chooseVideoAfterVideoPlayer" animates="NO" id="xWl-B7-oWc"/>
+                    </connections>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,6 +378,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xWl-B7-oWc"/>
         <segue reference="JkG-Gc-qkI"/>
     </inferredMetricsTieBreakers>
 </document>
