@@ -200,6 +200,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 
         // set title and image
         cell.title?.text = "Group \(indexPath.item)"
+        cell.groupId = indexPath.item
         cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
         
         // round the image

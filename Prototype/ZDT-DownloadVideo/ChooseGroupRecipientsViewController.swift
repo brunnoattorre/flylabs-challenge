@@ -12,6 +12,8 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
 
     var groupList: [Int] = []
     var url: NSURL = NSURL();
+    var highlighted = [Int: Bool]()
+    var groupId: String = ""
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -75,6 +77,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
             cSelector = "chooseNewGroupMembers:"
         } else {
             cell.title?.text = "Group \(indexPath.item)"
+            cell.groupId = indexPath.item
             cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
             cSelector = "tapped:"
         }
@@ -92,7 +95,27 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
     
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
-        groupList.append(sender.view!.tag)
+        let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell
+        if((highlighted[sender.view!.tag]) != nil && highlighted[sender.view!.tag] == true){
+            let width = CABasicAnimation(keyPath: "borderWidth")
+            width.fromValue = 4.0;
+            width.toValue   = 0.0;
+            cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+            cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+            cell.pinImage.layer.borderWidth = 0.0
+            highlighted[sender.view!.tag] = false
+            groupList.removeFirst(cell.groupId)
+        } else{
+            cell.pinImage.layer.borderColor = UIColor.whiteColor().CGColor
+            let width = CABasicAnimation(keyPath: "borderWidth")
+            width.fromValue = 0.0;
+            width.toValue   = 4.0;
+            cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+            cell.pinImage.layer.borderWidth = 4.0
+            highlighted[sender.view!.tag] = true
+            groupList.append(cell.groupId)
+        }
+        
     }
     
     func chooseNewGroupMembers(sender: UITapGestureRecognizer){
