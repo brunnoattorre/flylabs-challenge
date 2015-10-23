@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var groupList: [Int] = []
     var url: NSURL = NSURL();
@@ -24,9 +24,61 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         collectionView.delegate = self
 
         addGradientBackgroundLayer()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        // Call the uiimagepicker for the camera
+        let picker = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                
+                
+                picker.delegate = self
+                picker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                picker.mediaTypes = [kUTTypeMovie as String]
+                picker.allowsEditing = false
+                picker.videoQuality = UIImagePickerControllerQualityType.TypeMedium
+                picker.videoMaximumDuration = 10
+                
+        } else {
+            
+            picker.delegate = self
+            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            picker.mediaTypes = [kUTTypeMovie as String]
+            picker.allowsEditing = true
+        }
+        self.navigationController?.presentViewController(picker, animated: false, completion: nil)
     }
     
+    // MARK: - UIImagePickerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let url = info[UIImagePickerControllerMediaURL] {
+            
+            self.url = url as! NSURL
+            
+            picker.dismissViewControllerAnimated(true, completion: nil)
+            
+        } else {
+            
+            picker.dismissViewControllerAnimated(true, completion: nil)
+            //self.navigationController?.popViewControllerAnimated(false)
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "segueToGroupSelection") {
+            let svc = segue.destinationViewController as! ChooseGroupRecipientsViewController;
+            svc.url = self.url
+        }
+    }
     
     // MARK: - Collection View Setup
     

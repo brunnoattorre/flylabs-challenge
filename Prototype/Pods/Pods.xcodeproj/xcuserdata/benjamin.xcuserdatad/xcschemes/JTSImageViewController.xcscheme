@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7EDBC06B3D447B9192D12E139BD4ACFE"
-               BuildableName = "libJTSImageViewController.a"
+               BlueprintIdentifier = "FAE26C46CFBAF39E4C96ABF16B93D9FC"
+               BuildableName = "JTSImageViewController.framework"
                BlueprintName = "JTSImageViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7EDBC06B3D447B9192D12E139BD4ACFE"
-            BuildableName = "libJTSImageViewController.a"
+            BlueprintIdentifier = "FAE26C46CFBAF39E4C96ABF16B93D9FC"
+            BuildableName = "JTSImageViewController.framework"
             BlueprintName = "JTSImageViewController"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7EDBC06B3D447B9192D12E139BD4ACFE"
-            BuildableName = "libJTSImageViewController.a"
+            BlueprintIdentifier = "FAE26C46CFBAF39E4C96ABF16B93D9FC"
+            BuildableName = "JTSImageViewController.framework"
             BlueprintName = "JTSImageViewController"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFAmazonS3Manager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>AWSCore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,26 +22,56 @@
 		<key>AWSS3.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
+		</dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>ELCImagePickerController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>JTSImageViewController.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1A8130B73C36E80883472945AE56A99E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1B29865314F496AB43CDB13E4473347D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>298F4068BC4649CB0656ADBB71D2F680</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D1D316CB9BD9BBE4169B95795828500</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B30E468042F86BF95EC5D103AA0E2E24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BAAA0D70CB8625EE76B9FF4FEC38566A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E3C8A30D9238DA8287317EEEE8CD54F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAE26C46CFBAF39E4C96ABF16B93D9FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D1D316CB9BD9BBE4169B95795828500"
-               BuildableName = "libAWSS3.a"
+               BlueprintIdentifier = "3B41A9B1D49827D58E203AF61D34F608"
+               BuildableName = "AWSS3.framework"
                BlueprintName = "AWSS3"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D1D316CB9BD9BBE4169B95795828500"
-            BuildableName = "libAWSS3.a"
+            BlueprintIdentifier = "3B41A9B1D49827D58E203AF61D34F608"
+            BuildableName = "AWSS3.framework"
             BlueprintName = "AWSS3"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D1D316CB9BD9BBE4169B95795828500"
-            BuildableName = "libAWSS3.a"
+            BlueprintIdentifier = "3B41A9B1D49827D58E203AF61D34F608"
+            BuildableName = "AWSS3.framework"
             BlueprintName = "AWSS3"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
