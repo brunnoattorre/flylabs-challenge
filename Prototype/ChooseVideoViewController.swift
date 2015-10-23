@@ -17,14 +17,28 @@ class ChooseVideoViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
         let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-//        picker.mediaTypes = [kUTTypeMovie as String]
-        picker.allowsEditing = true
+        // Do any additional setup after loading the view.
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+
+                
+                picker.delegate = self
+                picker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                picker.mediaTypes = [kUTTypeMovie as String]
+                picker.allowsEditing = false
+                picker.videoQuality = UIImagePickerControllerQualityType.TypeMedium
+                picker.videoMaximumDuration = 10
+
+        } else {
+
+            picker.delegate = self
+            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            picker.mediaTypes = [kUTTypeMovie as String]
+            picker.allowsEditing = true
+        }
         self.presentViewController(picker, animated: false, completion: nil)
     }
 
