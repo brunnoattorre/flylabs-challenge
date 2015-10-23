@@ -19,7 +19,6 @@
 		56B060C81AD97085008FE9FB /* ZDT_DownloadVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060C71AD97085008FE9FB /* ZDT_DownloadVideoTests.swift */; };
 		56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D21AD971DC008FE9FB /* DownloadButton.swift */; };
 		56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D41AD9739A008FE9FB /* ProgressView.swift */; };
-		A3AF849AC16A5A09E3368A05 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 319E7EF8D6F0ACE840259E91 /* libPods.a */; };
 		C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */; };
 		C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF31BCC18FB00725BA9 /* AVKit.framework */; };
 		C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */; settings = {ASSET_TAGS = (); }; };
@@ -31,6 +30,7 @@
 		DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DB7EB1DEA1531F796189280C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EF648FB860E6733EA9556E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		319E7EF8D6F0ACE840259E91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupMembersTableViewController.swift; sourceTree = "<group>"; };
 		438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		43BFA1D01BD2A35900385F8C /* ChooseVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseVideoViewController.swift; path = ../ChooseVideoViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F8EF648FB860E6733EA9556E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */,
 				DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */,
 				C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */,
-				A3AF849AC16A5A09E3368A05 /* libPods.a in Frameworks */,
+				DB7EB1DEA1531F796189280C /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 		A921AD480A48B6071C3E7376 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				319E7EF8D6F0ACE840259E91 /* libPods.a */,
+				F8EF648FB860E6733EA9556E /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

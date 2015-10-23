@@ -103,7 +103,6 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xdV-n2-jlR"/>
                                     <segue destination="NwT-wk-2vu" kind="push" id="jhx-J6-Xpq"/>
                                 </connections>
                             </button>
@@ -188,7 +187,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipientCell" id="ISb-bj-wfG" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
@@ -256,7 +255,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="tIy-Kx-d3K" customClass="FriendTableViewCell" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -268,7 +267,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-bd-WxC">
                                             <rect key="frame" x="89" y="11" width="165" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPJ-2i-6l7">
@@ -365,7 +364,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xWl-B7-oWc"/>
         <segue reference="JkG-Gc-qkI"/>
+        <segue reference="jhx-J6-Xpq"/>
     </inferredMetricsTieBreakers>
 </document>

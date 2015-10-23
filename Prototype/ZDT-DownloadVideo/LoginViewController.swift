@@ -11,7 +11,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKShareKit
 import FBSDKLoginKit
-
+import Alamofire
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
@@ -34,19 +34,34 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func postUser(){
+
     
-//    func returnUserData()
-//    {
-//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-//        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-//            
-//            if ((error) != nil) {
-//                print("Error: \(error)")
-//            } else {
+    
+    }
+    
+    func returnUserData()
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil) {
+                print("Error: \(error)")
+            } else {
 //                print("fetched user: \(result)")
-//            }
-//        })
-//    }
+                let params = [ "user_fb_id":result["id"]!, "user_fb_name":result["name"]! ]
+                Alamofire.request(.POST, "http://refly-bd.herokuapp.com/api/register",
+                    parameters: params, encoding:.JSON)
+//                    .responseJSON { response in
+//                        if let JSON = response.result.value {
+//                            print("JSON: \(JSON)")
+//                            print(JSON["result"])
+//                        }
+//                }
+            }
+        })
+    }
 
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -56,6 +71,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         } else if result.isCancelled {
             // Handle cancellations
         } else {
+            self.returnUserData()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

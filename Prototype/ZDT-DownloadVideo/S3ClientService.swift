@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AWSS3
 
 class S3ClientService{
     var amountUploaded:Int64 = 0
