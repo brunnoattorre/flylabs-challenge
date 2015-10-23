@@ -20,7 +20,7 @@ class FlyLabsPlayer: AVQueuePlayer{
             startPlaying = true
         }
         if(super.items().count == 0 && startPlaying){
-            var alert = UIAlertController(title: "Add new videos", message: "Would you like to add a new video to this group", preferredStyle: UIAlertControllerStyle.ActionSheet)
+            var alert = UIAlertController(title: "Add new videos", message: "Would you like to add a new video to this group", preferredStyle: UIAlertControllerStyle.Alert)
             self.viewController.presentViewController(alert, animated: true, completion: nil)
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { action in
                 switch action.style{

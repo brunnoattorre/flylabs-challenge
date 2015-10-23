@@ -127,7 +127,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
                         <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
-                        <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" id="WHa-LU-e89"/>
+                        <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" animates="NO" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -320,7 +320,7 @@
                     <navigationItem key="navigationItem" id="k89-M2-5m1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="NwT-wk-2vu" kind="push" identifier="chooseVideoAfterVideoPlayer" id="xWl-B7-oWc"/>
+                        <segue destination="NwT-wk-2vu" kind="push" identifier="chooseVideoAfterVideoPlayer" animates="NO" id="xWl-B7-oWc"/>
                     </connections>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -43,9 +43,7 @@ class MyVideoPlayerViewController: AVPlayerViewController{
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.player?.pause()
-    }
+    
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         moved = true
