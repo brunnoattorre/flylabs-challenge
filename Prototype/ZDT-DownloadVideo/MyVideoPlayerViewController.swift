@@ -21,17 +21,12 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         numberOfItems = ((self.player as? FlyLabsPlayer)?.items().count)!
-        (self.player as? FlyLabsPlayer)?.viewConroller = self
+        (self.player as? FlyLabsPlayer)?.viewController = self
         i = 0
     }
     
-    
-    
-    
-    func playerDidFinishPlaying(note: NSNotification) {
-        if(i >= numberOfItems){
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
+    override func viewWillDisappear(animated: Bool) {
+        self.player?.pause()
     }
     
     
@@ -45,7 +40,9 @@ class MyVideoPlayerViewController: AVPlayerViewController{
         }
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.player?.pause()
+    }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         moved = true

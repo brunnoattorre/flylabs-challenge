@@ -60,6 +60,7 @@ class ProgressView: UIView {
         progressLayer.lineWidth = 4.0
         progressLayer.strokeStart = 0.0
         progressLayer.strokeEnd = 0.0
+        progressLayer.hidden = true
         layer.addSublayer(progressLayer)
         
         let dashedLayer = CAShapeLayer()
