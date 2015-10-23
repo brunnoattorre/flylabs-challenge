@@ -22,21 +22,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-<<<<<<< HEAD
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb1002107789850355</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>1002107789850355</string>
-	<key>FacebookDisplayName</key>
-	<string>flylabchallenge</string>
-=======
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>
@@ -68,7 +53,6 @@
     <string>1002107789850355</string>
     <key>FacebookDisplayName</key>
     <string>flylabchallenge</string>
->>>>>>> d46bd6bc1ae643a06800def35ead6d5103b7c5f7
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
