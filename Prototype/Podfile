@@ -1,4 +1,7 @@
+use_frameworks!
+
 pod 'AWSS3', '~> 2.2.0'
 pod 'ELCImagePickerController'
 pod 'JTSImageViewController'
-pod ’AFAmazonS3Manager', '~> 3.1.1'
+pod 'AFAmazonS3Manager', '~> 3.1.1'
+pod 'Alamofire', '~> 3.0'
