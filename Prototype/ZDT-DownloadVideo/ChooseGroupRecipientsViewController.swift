@@ -106,7 +106,13 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
     }
     @IBAction func sendSelected(sender: AnyObject) {
         upload()
-        performSegueWithIdentifier("backToBeginning", sender: self)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as! [UIViewController];
+        
+        for aViewController in viewControllers {
+            if(aViewController is ViewController){
+                self.navigationController!.popToViewController(aViewController, animated: true);
+            }
+        }
     }
     /*
     // MARK: - Navigation

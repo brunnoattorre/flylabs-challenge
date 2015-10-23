@@ -127,7 +127,7 @@
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
                         <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
-                        <segue destination="D0c-iq-l2W" kind="modal" identifier="segue1" id="WHa-LU-e89"/>
+                        <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj7-Mf-ERU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="1005"/>
+            <point key="canvasLocation" x="-292" y="1086"/>
         </scene>
         <!--Choose Group Recipients View Controller-->
         <scene sceneID="7ZF-9E-Abd">
@@ -244,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNQ-OB-L2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="174" y="1007"/>
+            <point key="canvasLocation" x="227" y="1129"/>
         </scene>
         <!--New Group Members Table View Controller-->
         <scene sceneID="vrX-yx-f37">
@@ -316,9 +316,12 @@
         <!--AV Player View Controller-->
         <scene sceneID="axf-15-Rb0">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="D0c-iq-l2W" customClass="MyVideoPlayerViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <avPlayerViewController showsPlaybackControls="NO" videoGravity="AVLayerVideoGravityResizeAspect" id="D0c-iq-l2W" customClass="MyVideoPlayerViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="k89-M2-5m1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="NwT-wk-2vu" kind="push" identifier="chooseVideoAfterVideoPlayer" id="xWl-B7-oWc"/>
+                    </connections>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,6 +365,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xWl-B7-oWc"/>
         <segue reference="JkG-Gc-qkI"/>
     </inferredMetricsTieBreakers>
 </document>
