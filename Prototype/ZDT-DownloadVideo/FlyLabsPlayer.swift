@@ -13,6 +13,7 @@ class FlyLabsPlayer: AVQueuePlayer{
 
     var viewController: MyVideoPlayerViewController = MyVideoPlayerViewController()
     var startPlaying = false
+    var groupId: Int!
     
     override func didChangeValueForKey(key: String) {
         super.didChangeValueForKey(key)

@@ -16,12 +16,14 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     var paused = false
     var numberOfItems = 2
     var i = 0
+    var groupId: Int!
 
     
     override func viewDidLoad(){
         super.viewDidLoad()
         numberOfItems = ((self.player as? FlyLabsPlayer)?.items().count)!
         (self.player as? FlyLabsPlayer)?.viewController = self
+        (self.player as? FlyLabsPlayer)?.groupId = self.groupId
         i = 0
     }
     

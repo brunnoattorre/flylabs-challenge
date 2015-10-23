@@ -27,6 +27,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     }
     
+    
     // MARK: - Collection View Setup
     
     func addGradientBackgroundLayer() {
@@ -41,6 +42,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UICollectionViewDel
         view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

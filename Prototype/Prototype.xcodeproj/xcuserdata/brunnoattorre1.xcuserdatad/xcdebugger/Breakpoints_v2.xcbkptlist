@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZDT-DownloadVideo/ViewController.swift"
-            timestampString = "467252986.528621"
+            timestampString = "467312119.264912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "URLSession(_:downloadTask:didFinishDownloadingToURL:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZDT-DownloadVideo/MyVideoPlayerViewController.swift"
-            timestampString = "467255360.089992"
+            timestampString = "467312119.264912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "touchesEnded(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZDT-DownloadVideo/MyVideoPlayerViewController.swift"
-            timestampString = "467255360.089992"
+            timestampString = "467312119.264912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "touchesEnded(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>

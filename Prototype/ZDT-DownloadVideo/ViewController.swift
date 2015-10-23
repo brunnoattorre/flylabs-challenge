@@ -25,6 +25,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     private var uiImage: UIImageView!
     
+    var groupSelected: Int!
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var progress: Float = 0
@@ -102,6 +103,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
             if(segue.identifier == "segue1") {
+                (segue.destinationViewController as! MyVideoPlayerViewController).groupId = self.groupSelected
                 let fileManager = NSFileManager.defaultManager()
                 let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
                 let destination = segue.destinationViewController as!
@@ -131,6 +133,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     // MARK: view methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:420e4e3a-8411-4352-9b63-5f3a7d5760da")
@@ -154,6 +157,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                 self.user_fb_id = result["id"] as? String
                 self.user_fb_name = result["name"] as? String
+                NSLog(self.user_fb_id! + "-" + self.user_fb_name!)
 //                let params = [ "user_fb_id":self.user_fb_id!, "user_fb_name":self.user_fb_name! ]
 //                Alamofire.request(.GET, "http://refly-bd.herokuapp.com/api/register",
 //                    parameters: params, encoding:.JSON).responseJSON { response in
@@ -222,7 +226,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
         self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
-        self.listURLs =  S3ClientService().listFilesFromS3(sender.view!.tag)
+        self.listURLs =   S3ClientService().listFilesFromS3(sender.view!.tag)
+        groupSelected = sender.view!.tag
         if(!listURLs.isEmpty){
             downloadButtonPressed()
         }
