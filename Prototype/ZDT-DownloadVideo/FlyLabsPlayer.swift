@@ -11,7 +11,7 @@ import AVFoundation
 import AVKit
 class FlyLabsPlayer: AVQueuePlayer{
 
-    var viewConroller: MyVideoPlayerViewController = MyVideoPlayerViewController()
+    var viewController: MyVideoPlayerViewController = MyVideoPlayerViewController()
     var startPlaying = false
     
     override func didChangeValueForKey(key: String) {
@@ -21,11 +21,12 @@ class FlyLabsPlayer: AVQueuePlayer{
         }
         if(super.items().count == 0 && startPlaying){
             var alert = UIAlertController(title: "Add new videos", message: "Would you like to add a new video to this group", preferredStyle: UIAlertControllerStyle.Alert)
-            self.viewConroller.presentViewController(alert, animated: true, completion: nil)
+            self.viewController.presentViewController(alert, animated: true, completion: nil)
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { action in
                 switch action.style{
                 case .Default:
-                    self.viewConroller.performSegueWithIdentifier("chooseVideoAfterVideoPlayer", sender: self.viewConroller)
+                    self.viewController.paused = true
+                    self.viewController.performSegueWithIdentifier("chooseVideoAfterVideoPlayer", sender: self.viewController)
                 case .Cancel:
                     print("cancel")
                     
@@ -36,7 +37,7 @@ class FlyLabsPlayer: AVQueuePlayer{
             alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { action in
                 switch action.style{
                 case .Default:
-                    self.viewConroller.navigationController?.popToRootViewControllerAnimated(true)
+                    self.viewController.navigationController?.popToRootViewControllerAnimated(true)
 
                 case .Cancel:
                     print("cancel")

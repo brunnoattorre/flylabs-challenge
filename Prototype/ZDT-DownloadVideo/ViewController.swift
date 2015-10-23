@@ -65,10 +65,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
 
         
-        progress = Float(totalDownloadedBytes) / Float(totalBytesExpected)
+        progress = (Float(totalDownloadedBytes) / Float(totalBytesExpected))
         progressView.animateProgressViewToProgress(progress)
         progressView.updateProgressViewLabelWithProgress(progress * 100)
-        self.uiImage.alpha = CGFloat(progress)
+        self.uiImage.alpha = CGFloat(progress * 0.4)
         
     }
     
@@ -88,6 +88,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             print(error)
         }
         if(progress == 1.0  ){
+            self.uiImage.alpha = CGFloat(1)
             performSegueWithIdentifier("segue1", sender: nil)
             resetView()
         }
