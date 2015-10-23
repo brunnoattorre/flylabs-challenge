@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
-                                <rect key="frame" x="0.0" y="116" width="320" height="452"/>
+                                <rect key="frame" x="0.0" y="150" width="320" height="418"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH8-bG-0vO">
@@ -97,7 +97,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="41" y="48" width="238" height="60"/>
+                                <rect key="frame" x="41" y="82" width="238" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Record">
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -114,9 +114,10 @@
                             <constraint firstItem="KRs-ie-EPh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="100" id="OwG-QC-dRU"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="top" secondItem="X62-KQ-MxM" secondAttribute="bottom" constant="8" id="bIT-Xg-fUH"/>
                             <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" constant="41" id="bSV-oh-6il"/>
-                            <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="KRs-ie-EPh" secondAttribute="bottom" id="cGH-eg-RVz"/>
+                            <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="KRs-ie-EPh" secondAttribute="bottom" constant="-26" id="cGH-eg-RVz"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
+                            <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="18" id="jgD-Hd-tmG"/>
                             <constraint firstItem="KRs-ie-EPh" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="8" id="tGq-kG-v21"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
                         </constraints>
@@ -187,7 +188,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipientCell" id="ISb-bj-wfG" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
+                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
@@ -255,7 +256,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="tIy-Kx-d3K" customClass="FriendTableViewCell" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -364,7 +365,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JkG-Gc-qkI"/>
+        <segue reference="U9W-6P-Q6o"/>
         <segue reference="jhx-J6-Xpq"/>
     </inferredMetricsTieBreakers>
 </document>
