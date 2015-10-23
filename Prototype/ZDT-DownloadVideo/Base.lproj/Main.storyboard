@@ -59,7 +59,6 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordVideo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xdV-n2-jlR"/>
                                     <segue destination="NwT-wk-2vu" kind="push" id="jhx-J6-Xpq"/>
                                 </connections>
                             </button>
