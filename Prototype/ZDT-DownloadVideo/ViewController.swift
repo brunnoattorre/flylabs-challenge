@@ -14,6 +14,8 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import FBSDKLoginKit
 import AWSS3
+import Alamofire
+
 
 class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource , UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -31,7 +33,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     private var listTasks: [NSURLSessionDownloadTask] = []
     private var listURLs: [NSURL] = [NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group1/20151011_222027.mp4")!,NSURL(string: "https://s3-us-west-2.amazonaws.com/flylabschallenge/Group1/20151011_221546.mp4")!]
     
-    
+    var user_fb_id: String?
+    var user_fb_name: String?
     
     
     @IBAction func downloadButtonPressed() {
@@ -144,13 +147,19 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-                
-                if ((error) != nil) {
-                    print("Error: \(error)")
-                } else {
-                    print("fetched user: \(result)")
-                }
+                self.user_fb_id = result["id"] as? String
+                self.user_fb_name = result["name"] as? String
+//                let params = [ "user_fb_id":self.user_fb_id!, "user_fb_name":self.user_fb_name! ]
+//                Alamofire.request(.GET, "http://refly-bd.herokuapp.com/api/register",
+//                    parameters: params, encoding:.JSON).responseJSON { response in
+//
+//                        if let JSON = response.result.value {
+//                            print("JSON: \(JSON)")
+//                            print(JSON["result"])
+//                        }
+//                }
             })
         }
     }
