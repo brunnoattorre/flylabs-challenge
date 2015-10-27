@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eO9-je-LzY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eO9-je-LzY">
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -45,13 +44,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRs-ie-EPh" customClass="ProgressView" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="240" y="28" width="80" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="KRs-ie-EPh" secondAttribute="height" multiplier="1:1" id="i9U-Mi-zOb"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
                                 <rect key="frame" x="0.0" y="188" width="320" height="380"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -64,7 +56,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="F0Q-nG-YGb" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
+                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
@@ -113,14 +105,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="KRs-ie-EPh" secondAttribute="trailing" constant="100" id="39V-bu-qTE"/>
+                            <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" id="DBt-PS-jZf"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="top" secondItem="X62-KQ-MxM" secondAttribute="bottom" constant="16" id="Hyy-z8-4fn"/>
                             <constraint firstItem="X62-KQ-MxM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="KMR-dJ-8K4"/>
                             <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" id="QVt-a1-hJ4"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
                             <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="18" id="jgD-Hd-tmG"/>
-                            <constraint firstItem="KRs-ie-EPh" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="8" id="tGq-kG-v21"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
                         </constraints>
                     </view>
@@ -128,7 +119,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
-                        <outlet property="progressView" destination="KRs-ie-EPh" id="sqI-vt-Vf4"/>
                         <outlet property="recordButton" destination="X62-KQ-MxM" id="8bB-ty-QDZ"/>
                         <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" animates="NO" id="WHa-LU-e89"/>
                     </connections>
@@ -231,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-xx-hlS">
@@ -337,6 +327,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7zW-aW-XRg"/>
+        <segue reference="UvK-mn-t0M"/>
     </inferredMetricsTieBreakers>
 </document>

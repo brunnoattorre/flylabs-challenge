@@ -10,7 +10,8 @@ import UIKit
 
 class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    var groupList: [Int] = []
+    let numGroups = 20
+    var groupList: [Bool] = []
     var url: NSURL = NSURL();
     var highlighted = [Int: Bool]()
     var groupId: String = ""
@@ -22,7 +23,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         // Do any additional setup after loading the view.
         
         collectionView.delegate = self
-
+        self.groupList = [Bool](count:self.numGroups, repeatedValue: false)
         // Call the uiimagepicker for the camera
         let picker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(
@@ -42,7 +43,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
             
             picker.delegate = self
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            picker.mediaTypes = [kUTTypeMovie as String]
+            picker.mediaTypes = [kUTTypeImage as String]
             picker.allowsEditing = true
         }
         self.navigationController?.presentViewController(picker, animated: false, completion: nil)
@@ -94,7 +95,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return self.numGroups
     }
     
 //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -123,6 +124,8 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
+        let borderColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+        cell.pinImage.layer.borderColor = borderColor.CGColor
         cell.pinImage.clipsToBounds = true
         
         // give it a gesture recognizer
@@ -143,17 +146,17 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
             cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
             cell.pinImage.layer.borderWidth = 0.0
             highlighted[sender.view!.tag] = false
-            groupList.removeFirst(cell.groupId)
+            self.groupList.removeAtIndex(cell.groupId)
         } else{
-            cell.pinImage.layer.borderColor = UIColor.whiteColor().CGColor
             let width = CABasicAnimation(keyPath: "borderWidth")
             width.fromValue = 0.0;
             width.toValue   = 4.0;
             cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
             cell.pinImage.layer.borderWidth = 4.0
             highlighted[sender.view!.tag] = true
-            groupList.append(cell.groupId)
+            self.groupList.insert(true, atIndex: cell.groupId)
         }
+        print(self.groupList.description)
         
     }
     
@@ -165,14 +168,16 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         let outFormatter = NSDateFormatter()
         outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         outFormatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
-        for group in groupList {
-            
-            S3ClientService().uploadToS3( self.url, groupId: group, videoId: outFormatter.stringFromDate(NSDate()))
+        for (group, chosen) in self.groupList.enumerate() {
+            if(chosen) {
+                S3ClientService().uploadToS3( self.url, groupId: group, videoId: outFormatter.stringFromDate(NSDate()))
+
+            }
         }
     }
     @IBAction func sendSelected(sender: AnyObject) {
         upload()
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as! [UIViewController];
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
         
         for aViewController in viewControllers {
             if(aViewController is ViewController){
