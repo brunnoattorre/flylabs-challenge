@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol NewGroupMembersTableViewControllerDelegate{
+    func createNewGroup(controller:NewGroupMembersTableViewController, recipientList:[Int], groupTitle:String)
+}
+
 class NewGroupMembersTableViewController: UITableViewController {
 
+    var delegate:NewGroupMembersTableViewControllerDelegate! = nil
+    var recipientList: [Int] = []
+    var groupTitle: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +40,8 @@ class NewGroupMembersTableViewController: UITableViewController {
     }
     
     @IBAction func createNewGroup(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        //self.dismissViewControllerAnimated(true, completion: nil)
+        delegate.createNewGroup(self, recipientList: self.recipientList, groupTitle: self.groupTitle)
     }
     
     // MARK: - Table view data source

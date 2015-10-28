@@ -139,6 +139,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         
         self.view.backgroundColor = UIColor.whiteColor()
         self.recordButton.backgroundColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+        self.recordButton.layer.cornerRadius = 0
+        print(self.recordButton.layer.cornerRadius.description)
         
         collectionView.delegate = self
         let credentialsProvider = AWSCognitoCredentialsProvider(
@@ -195,7 +197,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(10, 30, 15, 30)
+        return UIEdgeInsetsMake(-40, 30, 15, 30)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

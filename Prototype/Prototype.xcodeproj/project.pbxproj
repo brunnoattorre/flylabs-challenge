@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */; };
 		438EE0271BD6E47A00E1DFEB /* NewGroupMembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */; };
 		438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */; };
 		43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupMembersViewController.swift; sourceTree = "<group>"; };
 		438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupMembersTableViewController.swift; sourceTree = "<group>"; };
 		438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGroupRecipientsViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +143,7 @@
 				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
-				438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */,
+				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
 				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
@@ -161,6 +163,7 @@
 		56B060AF1AD97085008FE9FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				438EE0261BD6E47900E1DFEB /* NewGroupMembersTableViewController.swift */,
 				56B060B11AD97085008FE9FB /* AppDelegate.swift */,
 				C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */,
 				56B060B01AD97085008FE9FB /* Info.plist */,
@@ -360,6 +363,7 @@
 			files = (
 				C9AE17581BD9A1CA003F2648 /* FlyLabsPlayer.swift in Sources */,
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
+				434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,

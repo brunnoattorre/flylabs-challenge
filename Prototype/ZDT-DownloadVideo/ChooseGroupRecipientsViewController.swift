@@ -8,12 +8,18 @@
 
 import UIKit
 
-class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+struct Group{
+    var title: String = ""
+    var list = [Int: Bool]()
+}
 
-    var groupList: [Int] = []
+class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, NewGroupMembersViewControllerDelegate {
+    
+    let numGroups = 20
     var url: NSURL = NSURL();
-    var highlighted = [Int: Bool]()
-    var groupId: String = ""
+    var selectedGroups = [Int: Bool]()
+    var newGroup = Group()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -22,7 +28,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         // Do any additional setup after loading the view.
         
         collectionView.delegate = self
-
         // Call the uiimagepicker for the camera
         let picker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(
@@ -42,7 +47,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
             
             picker.delegate = self
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            picker.mediaTypes = [kUTTypeMovie as String]
+            picker.mediaTypes = [kUTTypeImage as String]
             picker.allowsEditing = true
         }
         self.navigationController?.presentViewController(picker, animated: false, completion: nil)
@@ -60,7 +65,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         } else {
             
             picker.dismissViewControllerAnimated(true, completion: nil)
-            //self.navigationController?.popViewControllerAnimated(false)
         }
         
     }
@@ -94,14 +98,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSizeMake(90, 90)
-//    }
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return self.numGroups
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -109,70 +106,71 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("recipientCell", forIndexPath: indexPath) as! CollectionViewCell
         
         // set title and image
-        var cSelector : Selector = nil
         if(indexPath.item == 0) {
             cell.title?.text = "New Refly"
             cell.pinImage?.image = UIImage(named: "newRefly.png")
-            cSelector = "chooseNewGroupMembers:"
         } else {
             cell.title?.text = "Group \(indexPath.item)"
             cell.groupId = indexPath.item
             cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
-            cSelector = "tapped:"
         }
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
+        let borderColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+        cell.pinImage.layer.borderColor = borderColor.CGColor
         cell.pinImage.clipsToBounds = true
         
-        // give it a gesture recognizer
-        cell.tag = indexPath.item
-        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
-        cell.addGestureRecognizer(tap)
         return cell
     }
     
-    func tapped(sender: UITapGestureRecognizer) {
-        NSLog(String(sender.view!.tag))
-        let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell
-        if((highlighted[sender.view!.tag]) != nil && highlighted[sender.view!.tag] == true){
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
+        if((selectedGroups[indexPath.item]) == nil || selectedGroups[indexPath.item] == false){
+            if(indexPath.item == 0) {
+                let newGroupController = self.storyboard?.instantiateViewControllerWithIdentifier("newGroupModalView") as! NewGroupMembersViewController
+                newGroupController.delegate = self
+                presentViewController(newGroupController, animated: true, completion: nil)
+            } else {
+                let width = CABasicAnimation(keyPath: "borderWidth")
+                width.fromValue = 0.0;
+                width.toValue   = 4.0;
+                cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+                cell.pinImage.layer.borderWidth = 4.0
+                selectedGroups[indexPath.item] = true
+            }
+        } else{
+            if(indexPath.item == 0) {
+                self.newGroup = Group()
+            }
             let width = CABasicAnimation(keyPath: "borderWidth")
             width.fromValue = 4.0;
             width.toValue   = 0.0;
             cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
             cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
             cell.pinImage.layer.borderWidth = 0.0
-            highlighted[sender.view!.tag] = false
-            groupList.removeFirst(cell.groupId)
-        } else{
-            cell.pinImage.layer.borderColor = UIColor.whiteColor().CGColor
-            let width = CABasicAnimation(keyPath: "borderWidth")
-            width.fromValue = 0.0;
-            width.toValue   = 4.0;
-            cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
-            cell.pinImage.layer.borderWidth = 4.0
-            highlighted[sender.view!.tag] = true
-            groupList.append(cell.groupId)
+            selectedGroups.removeValueForKey(indexPath.item)
         }
+
+        // check which groups have been selected
+        print(selectedGroups.description)
         
-    }
-    
-    func chooseNewGroupMembers(sender: UITapGestureRecognizer){
-        performSegueWithIdentifier("chooseNewGroupFriends", sender: self)
     }
     
     func upload (){
         let outFormatter = NSDateFormatter()
         outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         outFormatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
-        for group in groupList {
-            
-            S3ClientService().uploadToS3( self.url, groupId: group, videoId: outFormatter.stringFromDate(NSDate()))
+        for groupId in self.selectedGroups.keys {
+            if(selectedGroups[groupId] == true) {
+                S3ClientService().uploadToS3( self.url, groupId: groupId, videoId: outFormatter.stringFromDate(NSDate()))
+
+            }
         }
     }
     @IBAction func sendSelected(sender: AnyObject) {
         upload()
-        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as! [UIViewController];
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
         
         for aViewController in viewControllers {
             if(aViewController is ViewController){
@@ -180,14 +178,24 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - New Group Creation
+    
+    func createNewGroup(controller: NewGroupMembersViewController, group: Group) {
+        self.newGroup = group
+        print(group.title)
+        print(group.list.description)
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+        let indexPath = NSIndexPath.init(forItem: 0, inSection: 0)
+        let cell = self.collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
+        let width = CABasicAnimation(keyPath: "borderWidth")
+        width.fromValue = 0.0;
+        width.toValue   = 4.0;
+        cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+        cell.pinImage.layer.borderWidth = 4.0
+        selectedGroups[indexPath.item] = true
     }
-    */
 
 }
