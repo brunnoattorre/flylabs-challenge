@@ -71,8 +71,6 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 
         
         progress = (Float(totalDownloadedBytes) / Float(totalBytesExpected))
-        progressView.animateProgressViewToProgress(progress)
-        progressView.updateProgressViewLabelWithProgress(progress * 100)
         self.uiImage.alpha = CGFloat(progress * 0.4)
         
     }
