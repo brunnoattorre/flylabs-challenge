@@ -26,6 +26,10 @@
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; };
 		C9AE17581BD9A1CA003F2648 /* FlyLabsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */; };
+		C9D923F61BE5561500B52B82 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923F51BE5561500B52B82 /* BackendService.swift */; };
+		C9D923F81BE5564400B52B82 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923F71BE5564400B52B82 /* Group.swift */; };
+		C9D923FB1BE5567000B52B82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923FA1BE5567000B52B82 /* User.swift */; };
+		C9D923FD1BE5567C00B52B82 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923FC1BE5567C00B52B82 /* Video.swift */; };
 		DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */; };
 		DA2C506A1BD2B1E9005C91D6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */; };
 		DA2C506B1BD2B1E9005C91D6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */; };
@@ -71,6 +75,10 @@
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyLabsPlayer.swift; sourceTree = "<group>"; };
+		C9D923F51BE5561500B52B82 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		C9D923F71BE5564400B52B82 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		C9D923FA1BE5567000B52B82 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C9D923FC1BE5567C00B52B82 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		DA2C50671BD2B1E9005C91D6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		DA2C50681BD2B1E9005C91D6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -140,6 +148,8 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				C9D923FE1BE5568500B52B82 /* Services */,
+				C9D923F91BE5565700B52B82 /* Models */,
 				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
@@ -148,7 +158,6 @@
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
-				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
 				C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
@@ -204,6 +213,25 @@
 				F8EF648FB860E6733EA9556E /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9D923F91BE5565700B52B82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9D923F71BE5564400B52B82 /* Group.swift */,
+				C9D923FA1BE5567000B52B82 /* User.swift */,
+				C9D923FC1BE5567C00B52B82 /* Video.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C9D923FE1BE5568500B52B82 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
+				C9D923F51BE5561500B52B82 /* BackendService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,13 +392,17 @@
 				C9AE17581BD9A1CA003F2648 /* FlyLabsPlayer.swift in Sources */,
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */,
+				C9D923F81BE5564400B52B82 /* Group.swift in Sources */,
+				C9D923FB1BE5567000B52B82 /* User.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
 				438EE0271BD6E47A00E1DFEB /* NewGroupMembersTableViewController.swift in Sources */,
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
+				C9D923FD1BE5567C00B52B82 /* Video.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
+				C9D923F61BE5561500B52B82 /* BackendService.swift in Sources */,
 				43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,
 				C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */,
