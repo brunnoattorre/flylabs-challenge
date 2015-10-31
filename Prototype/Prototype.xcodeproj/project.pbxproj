@@ -148,17 +148,11 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				C9D923FF1BE556D100B52B82 /* Controller */,
 				C9D923FE1BE5568500B52B82 /* Services */,
 				C9D923F91BE5565700B52B82 /* Models */,
-				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
-				56B060B31AD97085008FE9FB /* ViewController.swift */,
-				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
-				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
-				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
-				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
+				C9D924011BE556FC00B52B82 /* Utils */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
-				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
-				C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
@@ -232,6 +226,28 @@
 				C9D923F51BE5561500B52B82 /* BackendService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		C9D923FF1BE556D100B52B82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
+				56B060B31AD97085008FE9FB /* ViewController.swift */,
+				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
+				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
+				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C9D924011BE556FC00B52B82 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */,
+				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
+				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
