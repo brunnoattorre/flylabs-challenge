@@ -6,4 +6,7 @@
 //  Copyright © 2015 Sztanyi Szabolcs. All rights reserved.
 //
 
-import Foundation
+
+class Group{
+    
+}
