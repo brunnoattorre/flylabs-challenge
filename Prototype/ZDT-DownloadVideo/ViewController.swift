@@ -24,6 +24,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     @IBOutlet var progressView: ProgressView!
     
     private var uiImage: UIImageView!
+    private var backendService = BackendService()
+    
     
     var groupSelected: Int!
     
@@ -37,7 +39,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
-    
+    var listGroups: [FlapGroup] = [FlapGroup]()
+    var groupsSize: Int = 0
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
@@ -154,6 +157,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             let vc = LoginViewController()
             self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
         }
+       
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -161,9 +165,13 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
 
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                print (result)
                 self.user_fb_id = result["id"] as? String
                 self.user_fb_name = result["name"] as? String
                 NSLog(self.user_fb_id! + "-" + self.user_fb_name!)
+                if(self.user_fb_id != nil){
+                    self.backendService.getGroups(self.user_fb_id!, controller: self)
+                }
 //                let params = [ "user_fb_id":self.user_fb_id!, "user_fb_name":self.user_fb_name! ]
 //                Alamofire.request(.GET, "http://refly-bd.herokuapp.com/api/register",
 //                    parameters: params, encoding:.JSON).responseJSON { response in
@@ -199,7 +207,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return groupsSize
     }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -208,9 +216,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         // choose reusable cell type
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
 
+        let group = self.listGroups[indexPath.item]
         // set title and image
-        cell.title?.text = "Group \(indexPath.item)"
-        cell.groupId = indexPath.item
+        cell.title?.text = group.groupName
+        cell.groupId = group.groupId
         cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
         
         // round the image
@@ -228,8 +237,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
         self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
-        self.listURLs =   S3ClientService().listFilesFromS3(sender.view!.tag)
-        groupSelected = sender.view!.tag
+        self.listURLs =   S3ClientService().listFilesFromS3((listGroups[sender.view!.tag] as FlapGroup).groupId)
         if(!listURLs.isEmpty){
             downloadButtonPressed()
         }

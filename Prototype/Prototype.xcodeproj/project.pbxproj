@@ -27,7 +27,7 @@
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; };
 		C9AE17581BD9A1CA003F2648 /* FlyLabsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */; };
 		C9D923F61BE5561500B52B82 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923F51BE5561500B52B82 /* BackendService.swift */; };
-		C9D923F81BE5564400B52B82 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923F71BE5564400B52B82 /* Group.swift */; };
+		C9D923F81BE5564400B52B82 /* FlapGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923F71BE5564400B52B82 /* FlapGroup.swift */; };
 		C9D923FB1BE5567000B52B82 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923FA1BE5567000B52B82 /* User.swift */; };
 		C9D923FD1BE5567C00B52B82 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D923FC1BE5567C00B52B82 /* Video.swift */; };
 		DA2C50691BD2B1E9005C91D6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */; };
@@ -76,7 +76,7 @@
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlyLabsPlayer.swift; sourceTree = "<group>"; };
 		C9D923F51BE5561500B52B82 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
-		C9D923F71BE5564400B52B82 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		C9D923F71BE5564400B52B82 /* FlapGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapGroup.swift; sourceTree = "<group>"; };
 		C9D923FA1BE5567000B52B82 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9D923FC1BE5567C00B52B82 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		DA2C50661BD2B1E9005C91D6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		C9D923F91BE5565700B52B82 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C9D923F71BE5564400B52B82 /* Group.swift */,
+				C9D923F71BE5564400B52B82 /* FlapGroup.swift */,
 				C9D923FA1BE5567000B52B82 /* User.swift */,
 				C9D923FC1BE5567C00B52B82 /* Video.swift */,
 			);
@@ -408,7 +408,7 @@
 				C9AE17581BD9A1CA003F2648 /* FlyLabsPlayer.swift in Sources */,
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */,
-				C9D923F81BE5564400B52B82 /* Group.swift in Sources */,
+				C9D923F81BE5564400B52B82 /* FlapGroup.swift in Sources */,
 				C9D923FB1BE5567000B52B82 /* User.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
