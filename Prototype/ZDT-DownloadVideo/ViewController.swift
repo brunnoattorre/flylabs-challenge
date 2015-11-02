@@ -37,7 +37,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
-    
+    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+    let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
@@ -136,7 +137,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
-        self.recordButton.backgroundColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+        self.recordButton.backgroundColor = self.appColor
         self.recordButton.layer.cornerRadius = 0
         print(self.recordButton.layer.cornerRadius.description)
         
@@ -210,8 +211,26 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 
         // set title and image
         cell.title?.text = "Group \(indexPath.item)"
+        cell.title?.textAlignment = NSTextAlignment.Center
+        cell.title?.font = self.flapTitleFont
+        cell.title?.textColor = self.appColor
         cell.groupId = indexPath.item
-        cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+        
+        var gender = ""
+        if(arc4random_uniform(100)>50) {
+            gender = "men"
+        } else {
+            gender = "women"
+        }
+        
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.pinImage?.image = UIImage(data: data)
+            }
+        }
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2

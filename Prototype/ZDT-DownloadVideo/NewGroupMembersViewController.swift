@@ -71,8 +71,28 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell") as! FriendTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell.profilePic?.image = UIImage(named: "securitymonkeyhead.png")
+        var gender = ""
+        if(arc4random_uniform(100)>50) {
+            gender = "men"
+        } else {
+            gender = "women"
+        }
+        
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.profilePic?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.profilePic?.image = UIImage(data: data)
+            }
+        }
+        
+        // round the image
+        cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
+        cell.profilePic.clipsToBounds = true
+        
         cell.friendName?.text = "Monkey"
         
         return cell
@@ -81,12 +101,15 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! FriendTableViewCell
         
-        if(cell.checkmark.image == nil) {
-            cell.checkmark.image = UIImage(named: "checkmark.png")
+        print(cell.checked)
+        if(cell.checked) {
+            cell.accessoryType = UITableViewCellAccessoryType.None
             self.newGroup.list[indexPath.item] = true
+            cell.checked = false
         } else {
-            cell.checkmark.image = nil
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             self.newGroup.list.removeValueForKey(indexPath.item)
+            cell.checked = true
         }
     }
         

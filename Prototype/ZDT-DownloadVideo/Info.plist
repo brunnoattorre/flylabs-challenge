@@ -46,6 +46,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>api.randomuser.me</key>
+			<dict>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>akamaihd.net</key>
 			<dict>
 				<key>NSExceptionRequiresForwardSecrecy</key>
