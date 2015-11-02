@@ -41,6 +41,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     var user_fb_name: String?
     var listGroups: [FlapGroup] = [FlapGroup]()
     var groupsSize: Int = 0
+    var friends = []
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
@@ -64,11 +65,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         totalBytes[downloadTask.taskIdentifier] = totalBytesExpectedToWrite
         totalDownloaded[downloadTask.taskIdentifier] = totalBytesWritten
         var totalBytesExpected = Int64(0)
-        for (key,value) in totalBytes{
+        for (_,value) in totalBytes{
             totalBytesExpected = totalBytesExpected + value
         }
         var totalDownloadedBytes = Int64(0)
-        for (key,value) in totalDownloaded{
+        for (_,value) in totalDownloaded{
             totalDownloadedBytes = totalDownloadedBytes + value
         }
 
@@ -156,6 +157,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         if (FBSDKAccessToken.currentAccessToken() == nil) {
             let vc = LoginViewController()
             self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
+        } else {
+
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                self.friends = result["data"] as! [Dictionary<String, String>]
+            })
         }
        
         
