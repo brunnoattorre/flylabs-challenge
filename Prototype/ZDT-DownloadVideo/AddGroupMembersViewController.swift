@@ -1,5 +1,5 @@
 //
-//  NewGroupMembersViewController.swift
+//  AddGroupMembersViewController.swift
 //  Prototype
 //
 //  Created by Ben Lieblich on 10/27/15.
@@ -8,53 +8,33 @@
 
 import UIKit
 
-protocol NewGroupMembersViewControllerDelegate{
-    func createNewGroup(controller: NewGroupMembersViewController, group: Group)
-}
-
-class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
-
-    @IBOutlet weak var recipientTableView: UITableView!
-    @IBOutlet weak var groupTitle: UITextField!
+class AddGroupMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
     
-    var delegate:NewGroupMembersViewControllerDelegate! = nil
-    var newGroup = Group()
+    @IBOutlet weak var recipientTableView: UITableView!
+    var group: Int = 0
+    var newMembers = [Int: Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.recipientTableView.delegate = self
         self.recipientTableView.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelNewGroup(sender: AnyObject) {
+    @IBAction func cancelAddMembers(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func createNewGroup(sender: AnyObject) {
-        if(self.groupTitle.text == "") {
-            self.groupTitle.layer.borderColor = UIColor.redColor().CGColor
-            self.groupTitle.layer.borderWidth = 1
-        }
-        else {
-            self.groupTitle.layer.borderWidth = 0
-        }
-        if(self.newGroup.list.isEmpty) {
-            let noRecipientsAlert = UIAlertController(title: "No Recipients", message: "Try choosing some friends to send your video to.", preferredStyle: UIAlertControllerStyle.Alert)
-            noRecipientsAlert.addAction(UIAlertAction(title: "Gotcha", style: UIAlertActionStyle.Cancel, handler: nil))
-            self.presentViewController(noRecipientsAlert, animated: true, completion: nil)
-        }
-        if(self.groupTitle.text != "" && !self.newGroup.list.isEmpty) {
-            self.newGroup.title = self.groupTitle.text!
-            delegate.createNewGroup(self, group: self.newGroup)
-        }
+    @IBAction func addNewMembers(sender: AnyObject) {
+        //invite the members
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -68,7 +48,7 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         
         return 20
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell") as! FriendTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -104,28 +84,28 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         print(cell.checked)
         if(cell.checked) {
             cell.accessoryType = UITableViewCellAccessoryType.None
-            self.newGroup.list.removeValueForKey(indexPath.item)
+            self.newMembers.removeValueForKey(indexPath.item)
             cell.checked = false
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            self.newGroup.list[indexPath.item] = true
+            self.newMembers[indexPath.item] = true
             cell.checked = true
         }
     }
-        
-// MARK: - Nav Bar Delegate Methods
+    
+    // MARK: - Nav Bar Delegate Methods
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

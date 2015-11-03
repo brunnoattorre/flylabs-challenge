@@ -19,6 +19,8 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     var url: NSURL = NSURL();
     var selectedGroups = [Int: Bool]()
     var newGroup = Group()
+    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+    let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -111,14 +113,33 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
             cell.pinImage?.image = UIImage(named: "newRefly.png")
         } else {
             cell.title?.text = "Group \(indexPath.item)"
-            cell.groupId = indexPath.item
-            cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+            
+            var gender = ""
+            if(arc4random_uniform(100)>50) {
+                gender = "men"
+            } else {
+                gender = "women"
+            }
+            
+            if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+                print(url)
+                
+                if let data = NSData(contentsOfURL: url){
+                    cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                    cell.pinImage?.image = UIImage(data: data)
+                }
+            }
         }
+        
+        
+        cell.title?.textAlignment = NSTextAlignment.Center
+        cell.title?.font = self.flapTitleFont
+        cell.title?.textColor = self.appColor
+        cell.groupId = indexPath.item
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
-        let borderColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
-        cell.pinImage.layer.borderColor = borderColor.CGColor
+        cell.pinImage.layer.borderColor = self.appColor.CGColor
         cell.pinImage.clipsToBounds = true
         
         return cell
