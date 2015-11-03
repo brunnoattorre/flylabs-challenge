@@ -144,19 +144,11 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				C976EFC91BE94974000EA354 /* FlapGroup.swift */,
-				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
-				C976EFCB1BE94981000EA354 /* BackendService.swift */,
-				56B060B31AD97085008FE9FB /* ViewController.swift */,
-				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
-				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
-				43088F301BE84FC300E75D5E /* AddGroupMembersViewController.swift */,
-				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
-				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
+				C976EFCF1BE94F8A000EA354 /* model */,
+				C976EFCD1BE94F59000EA354 /* Controller */,
+				C976EFCE1BE94F6E000EA354 /* Service */,
+				C976EFD01BE94F93000EA354 /* Util */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
-				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
-				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
-				C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
@@ -210,6 +202,46 @@
 				F8EF648FB860E6733EA9556E /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C976EFCD1BE94F59000EA354 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
+				56B060B31AD97085008FE9FB /* ViewController.swift */,
+				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
+				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
+				43088F301BE84FC300E75D5E /* AddGroupMembersViewController.swift */,
+				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C976EFCE1BE94F6E000EA354 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C976EFCB1BE94981000EA354 /* BackendService.swift */,
+				C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		C976EFCF1BE94F8A000EA354 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C976EFC91BE94974000EA354 /* FlapGroup.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		C976EFD01BE94F93000EA354 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
+				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
+				C9AE17571BD9A1CA003F2648 /* FlyLabsPlayer.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

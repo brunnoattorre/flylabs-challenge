@@ -272,6 +272,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         cell.tag = indexPath.item
         let press = UILongPressGestureRecognizer.init(target: self, action: cSelector)
         cell.addGestureRecognizer(press)
+        
+        // give it a gesture recognizer
+        let cSelector2 : Selector = "tapped:"
+        cell.tag = indexPath.item
+        let tap = UITapGestureRecognizer.init(target: self, action: cSelector2)
+        cell.addGestureRecognizer(tap)
         return cell
     }
   
