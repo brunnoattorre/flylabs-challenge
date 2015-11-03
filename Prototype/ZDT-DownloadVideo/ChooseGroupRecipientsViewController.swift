@@ -21,7 +21,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     var newGroup = Group()
     let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
     let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -92,7 +91,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        return 9
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
