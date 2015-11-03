@@ -24,6 +24,8 @@
 		C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */; };
 		C976EFCA1BE94974000EA354 /* FlapGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFC91BE94974000EA354 /* FlapGroup.swift */; };
 		C976EFCC1BE94981000EA354 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFCB1BE94981000EA354 /* BackendService.swift */; };
+		C976EFD31BE94FBD000EA354 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFD11BE94FBD000EA354 /* User.swift */; };
+		C976EFD41BE94FBD000EA354 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFD21BE94FBD000EA354 /* Video.swift */; };
 		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; };
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; };
@@ -71,6 +73,8 @@
 		C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ClientService.swift; sourceTree = "<group>"; };
 		C976EFC91BE94974000EA354 /* FlapGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapGroup.swift; sourceTree = "<group>"; };
 		C976EFCB1BE94981000EA354 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		C976EFD11BE94FBD000EA354 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C976EFD21BE94FBD000EA354 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 		C976EFCF1BE94F8A000EA354 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C976EFD11BE94FBD000EA354 /* User.swift */,
+				C976EFD21BE94FBD000EA354 /* Video.swift */,
 				C976EFC91BE94974000EA354 /* FlapGroup.swift */,
 			);
 			name = model;
@@ -403,12 +409,14 @@
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
+				C976EFD31BE94FBD000EA354 /* User.swift in Sources */,
 				C976EFCC1BE94981000EA354 /* BackendService.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
 				43088F311BE84FC300E75D5E /* AddGroupMembersViewController.swift in Sources */,
+				C976EFD41BE94FBD000EA354 /* Video.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
 				43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,
