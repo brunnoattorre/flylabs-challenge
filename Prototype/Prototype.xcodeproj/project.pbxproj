@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43088F311BE84FC300E75D5E /* AddGroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43088F301BE84FC300E75D5E /* AddGroupMembersViewController.swift */; };
 		434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */; };
 		438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */; };
 		43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43088F301BE84FC300E75D5E /* AddGroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupMembersViewController.swift; sourceTree = "<group>"; };
 		434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupMembersViewController.swift; sourceTree = "<group>"; };
 		438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGroupRecipientsViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
 				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
+				43088F301BE84FC300E75D5E /* AddGroupMembersViewController.swift */,
 				438EE02A1BD6E9F400E1DFEB /* FriendTableViewCell.swift */,
 				C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */,
 				56B060B51AD97085008FE9FB /* Main.storyboard */,
@@ -366,6 +369,7 @@
 				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
 				56B060D31AD971DC008FE9FB /* DownloadButton.swift in Sources */,
+				43088F311BE84FC300E75D5E /* AddGroupMembersViewController.swift in Sources */,
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
 				43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,

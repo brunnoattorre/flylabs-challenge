@@ -237,39 +237,27 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         cell.pinImage.clipsToBounds = true
         
         // give it a gesture recognizer
-        let cSelector : Selector = "tapped:"
+        let cSelector : Selector = "pressed:"
         cell.tag = indexPath.item
-        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
-        cell.addGestureRecognizer(tap)
+        let press = UILongPressGestureRecognizer.init(target: self, action: cSelector)
+        cell.addGestureRecognizer(press)
         return cell
     }
     
-    func tapped(sender: UITapGestureRecognizer) {
-        NSLog(String(sender.view!.tag))
-        self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
-        self.listURLs =   S3ClientService().listFilesFromS3(sender.view!.tag)
-        groupSelected = sender.view!.tag
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        self.listURLs =   S3ClientService().listFilesFromS3(indexPath.item)
+        self.groupSelected = indexPath.item
         if(!listURLs.isEmpty){
             downloadButtonPressed()
         }
     }
     
-    // MARK: camera segue/methods
+    func pressed(sender: UILongPressGestureRecognizer) {
+        let addGroupMembersVC = self.storyboard?.instantiateViewControllerWithIdentifier("addGroupMembersModalView") as! AddGroupMembersViewController
+        addGroupMembersVC.group = (sender.view?.tag)!
+        presentViewController(addGroupMembersVC, animated: true, completion: nil)
+    }
     
-//    @IBAction func recordVideo(sender: AnyObject) {
-//        if UIImagePickerController.isSourceTypeAvailable(
-//            UIImagePickerControllerSourceType.Camera) {
-//                
-//                let imagePicker = UIImagePickerController()
-//                
-//                imagePicker.delegate = self
-//                imagePicker.sourceType =
-//                    UIImagePickerControllerSourceType.Camera
-//                imagePicker.mediaTypes = [kUTTypeVideo as String]
-//                imagePicker.allowsEditing = false
-//                
-//                self.navigationController!.pushViewController(imagePicker, animated: true)
-//        }
-//
-//    }
+    //prepare for segue
+    //tell the new vc which group is sending
 }
