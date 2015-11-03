@@ -12,7 +12,7 @@ class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var friendName: UILabel!
-    @IBOutlet weak var checkmark: UIImageView!
+    var checked = false
     
     override func awakeFromNib() {
         super.awakeFromNib()

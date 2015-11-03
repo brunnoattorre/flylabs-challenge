@@ -39,6 +39,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
+    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+    let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
     var listGroups: [FlapGroup] = [FlapGroup]()
     var groupsSize: Int = 0
     var friends = []
@@ -140,7 +142,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
-        self.recordButton.backgroundColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+        self.recordButton.backgroundColor = self.appColor
         self.recordButton.layer.cornerRadius = 0
         print(self.recordButton.layer.cornerRadius.description)
         
@@ -225,21 +227,60 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 
         let group = self.listGroups[indexPath.item]
         // set title and image
+        cell.title?.text = "Group \(indexPath.item)"
+        cell.title?.textAlignment = NSTextAlignment.Center
+        cell.title?.font = self.flapTitleFont
+        cell.title?.textColor = self.appColor
+        cell.groupId = indexPath.item
+        
+        var gender = ""
+        if(arc4random_uniform(100)>50) {
+            gender = "men"
+        } else {
+            gender = "women"
+        }
+        
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.pinImage?.image = UIImage(data: data)
+            }
+        }
         cell.title?.text = group.groupName
         cell.groupId = group.groupId
-        cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.pinImage?.image = UIImage(data: data)
+            }else{
+                cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+
+            }
+        }
+
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
         cell.pinImage.clipsToBounds = true
         
         // give it a gesture recognizer
-        let cSelector : Selector = "tapped:"
+        let cSelector : Selector = "pressed:"
         cell.tag = indexPath.item
-        let tap = UITapGestureRecognizer.init(target: self, action: cSelector)
+        let press = UILongPressGestureRecognizer.init(target: self, action: cSelector)
+        cell.addGestureRecognizer(press)
+        
+        // give it a gesture recognizer
+        let cSelector2 : Selector = "tapped:"
+        cell.tag = indexPath.item
+        let tap = UITapGestureRecognizer.init(target: self, action: cSelector2)
         cell.addGestureRecognizer(tap)
         return cell
     }
+  
     
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))
@@ -250,22 +291,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
     }
     
-    // MARK: camera segue/methods
+    func pressed(sender: UILongPressGestureRecognizer) {
+        let addGroupMembersVC = self.storyboard?.instantiateViewControllerWithIdentifier("addGroupMembersModalView") as! AddGroupMembersViewController
+        addGroupMembersVC.group = (sender.view?.tag)!
+        presentViewController(addGroupMembersVC, animated: true, completion: nil)
+    }
     
-//    @IBAction func recordVideo(sender: AnyObject) {
-//        if UIImagePickerController.isSourceTypeAvailable(
-//            UIImagePickerControllerSourceType.Camera) {
-//                
-//                let imagePicker = UIImagePickerController()
-//                
-//                imagePicker.delegate = self
-//                imagePicker.sourceType =
-//                    UIImagePickerControllerSourceType.Camera
-//                imagePicker.mediaTypes = [kUTTypeVideo as String]
-//                imagePicker.allowsEditing = false
-//                
-//                self.navigationController!.pushViewController(imagePicker, animated: true)
-//        }
-//
-//    }
+    //prepare for segue
+    //tell the new vc which group is sending
 }
