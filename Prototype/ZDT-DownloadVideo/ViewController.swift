@@ -39,14 +39,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
-<<<<<<< HEAD
     let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
     let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
-=======
     var listGroups: [FlapGroup] = [FlapGroup]()
     var groupsSize: Int = 0
     var friends = []
->>>>>>> master
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
@@ -277,11 +274,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         cell.addGestureRecognizer(press)
         return cell
     }
-    
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        self.listURLs =   S3ClientService().listFilesFromS3(indexPath.item)
-        self.groupSelected = indexPath.item
-    }
+  
     
     func tapped(sender: UITapGestureRecognizer) {
         NSLog(String(sender.view!.tag))

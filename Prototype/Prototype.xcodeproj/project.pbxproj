@@ -22,6 +22,8 @@
 		C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */; };
 		C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF31BCC18FB00725BA9 /* AVKit.framework */; };
 		C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */; };
+		C976EFCA1BE94974000EA354 /* FlapGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFC91BE94974000EA354 /* FlapGroup.swift */; };
+		C976EFCC1BE94981000EA354 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFCB1BE94981000EA354 /* BackendService.swift */; };
 		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; };
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; };
@@ -67,6 +69,8 @@
 		C90C8FF31BCC18FB00725BA9 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		C947D55C1BD2B3B30040FD6D /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ClientService.swift; sourceTree = "<group>"; };
+		C976EFC91BE94974000EA354 /* FlapGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapGroup.swift; sourceTree = "<group>"; };
+		C976EFCB1BE94981000EA354 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
 		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +144,9 @@
 		56B060AE1AD97085008FE9FB /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
+				C976EFC91BE94974000EA354 /* FlapGroup.swift */,
 				DA2C506C1BD2B792005C91D6 /* LoginViewController.swift */,
+				C976EFCB1BE94981000EA354 /* BackendService.swift */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
 				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
@@ -365,6 +371,7 @@
 				DA2C506D1BD2B792005C91D6 /* LoginViewController.swift in Sources */,
 				434625001BE038F800EF7FEA /* NewGroupMembersViewController.swift in Sources */,
 				56B060B41AD97085008FE9FB /* ViewController.swift in Sources */,
+				C976EFCC1BE94981000EA354 /* BackendService.swift in Sources */,
 				56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */,
 				438EE02B1BD6E9F400E1DFEB /* FriendTableViewCell.swift in Sources */,
 				C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */,
@@ -373,6 +380,7 @@
 				C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */,
 				43DA18E71BD53556005208F3 /* ChooseGroupRecipientsViewController.swift in Sources */,
 				56B060B21AD97085008FE9FB /* AppDelegate.swift in Sources */,
+				C976EFCA1BE94974000EA354 /* FlapGroup.swift in Sources */,
 				C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
