@@ -104,6 +104,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
        
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue,
         sender: AnyObject?) {
             if(segue.identifier == "segue1") {
