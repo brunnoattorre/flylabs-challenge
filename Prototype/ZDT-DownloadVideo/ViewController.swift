@@ -24,6 +24,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     @IBOutlet var progressView: ProgressView!
     
     private var uiImage: UIImageView!
+    private var backendService = BackendService()
+    
     
     var groupSelected: Int!
     
@@ -37,8 +39,14 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
+<<<<<<< HEAD
     let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
     let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
+=======
+    var listGroups: [FlapGroup] = [FlapGroup]()
+    var groupsSize: Int = 0
+    var friends = []
+>>>>>>> master
     
     @IBAction func downloadButtonPressed() {
         listTasks = []
@@ -62,11 +70,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         totalBytes[downloadTask.taskIdentifier] = totalBytesExpectedToWrite
         totalDownloaded[downloadTask.taskIdentifier] = totalBytesWritten
         var totalBytesExpected = Int64(0)
-        for (key,value) in totalBytes{
+        for (_,value) in totalBytes{
             totalBytesExpected = totalBytesExpected + value
         }
         var totalDownloadedBytes = Int64(0)
-        for (key,value) in totalDownloaded{
+        for (_,value) in totalDownloaded{
             totalDownloadedBytes = totalDownloadedBytes + value
         }
 
@@ -154,7 +162,14 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         if (FBSDKAccessToken.currentAccessToken() == nil) {
             let vc = LoginViewController()
             self.parentViewController?.presentViewController(vc, animated: false, completion: nil)
+        } else {
+
+            let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me/friends", parameters: nil)
+            graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                self.friends = result["data"] as! [Dictionary<String, String>]
+            })
         }
+       
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -162,9 +177,13 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
 
             graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                print (result)
                 self.user_fb_id = result["id"] as? String
                 self.user_fb_name = result["name"] as? String
                 NSLog(self.user_fb_id! + "-" + self.user_fb_name!)
+                if(self.user_fb_id != nil){
+                    self.backendService.getGroups(self.user_fb_id!, controller: self)
+                }
 //                let params = [ "user_fb_id":self.user_fb_id!, "user_fb_name":self.user_fb_name! ]
 //                Alamofire.request(.GET, "http://refly-bd.herokuapp.com/api/register",
 //                    parameters: params, encoding:.JSON).responseJSON { response in
@@ -200,7 +219,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return groupsSize
     }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -209,6 +228,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         // choose reusable cell type
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
 
+        let group = self.listGroups[indexPath.item]
         // set title and image
         cell.title?.text = "Group \(indexPath.item)"
         cell.title?.textAlignment = NSTextAlignment.Center
@@ -231,6 +251,20 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
                 cell.pinImage?.image = UIImage(data: data)
             }
         }
+        cell.title?.text = group.groupName
+        cell.groupId = group.groupId
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.pinImage?.image = UIImage(data: data)
+            }else{
+                cell.pinImage?.image = UIImage(named: "spiral-rainbow-background.jpg")
+
+            }
+        }
+
         
         // round the image
         cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
@@ -247,6 +281,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         self.listURLs =   S3ClientService().listFilesFromS3(indexPath.item)
         self.groupSelected = indexPath.item
+    }
+    
+    func tapped(sender: UITapGestureRecognizer) {
+        NSLog(String(sender.view!.tag))
+        self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
+        self.listURLs =   S3ClientService().listFilesFromS3((listGroups[sender.view!.tag] as FlapGroup).groupId)
         if(!listURLs.isEmpty){
             downloadButtonPressed()
         }
