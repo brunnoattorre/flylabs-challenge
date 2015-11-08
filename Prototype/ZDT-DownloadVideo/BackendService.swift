@@ -45,5 +45,18 @@ class BackendService{
         }
     }
     
+    func submitVideo(userId: String, videoPath: String){
+       let video = Video.init(videoPath: videoPath, userId: userId).toDictionary()
+        Alamofire.request(.POST, "http://refly-bd.herokuapp.com/api/videos",parameters: video,
+            encoding:.JSON).responseJSON { request in
+                switch request.result {
+                case .Success(let JSON):
+                    print("Video uploaded")
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+    }
     
 }
