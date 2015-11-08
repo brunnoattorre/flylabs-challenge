@@ -7,5 +7,26 @@
 //
 
 class Video{
+    var video_s3_path: String
+    var user_fb_id: String
+    var created_at: String
+    var order: Int
     
+    init(videoPath: String, userId: String) {
+        self.video_s3_path = videoPath
+        self.user_fb_id = userId
+        self.created_at = NSDateFormatter.dateFormatFromTemplate("yyyyMMdd hh:mm:ss", options: 0, locale: NSLocale(localeIdentifier: "en-US"))!
+        self.order = 1
+    }
+    
+    func toDictionary() -> [String: AnyObject]{
+        return [
+            "video_s3_path": video_s3_path,
+            "user_fb_id": user_fb_id,
+            "created_at": created_at,
+            "order": order
+        ]
+    }
+    
+
 }
