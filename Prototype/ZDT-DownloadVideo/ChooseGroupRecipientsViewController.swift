@@ -120,7 +120,7 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
                 gender = "women"
             }
             
-            if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+            if let url = NSURL(string: "http://lorempixel.com/400/200/") {
                 print(url)
                 
                 if let data = NSData(contentsOfURL: url){

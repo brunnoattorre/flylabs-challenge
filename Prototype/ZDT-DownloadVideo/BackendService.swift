@@ -45,8 +45,8 @@ class BackendService{
         }
     }
     
-    func submitVideo(userId: String, videoPath: String){
-       let video = Video.init(videoPath: videoPath, userId: userId).toDictionary()
+    func submitVideo(userId: String, videoPath: String, groupIds: Array<Int>){
+        let video = Video.init(videoPath: videoPath, userId: userId,  groupId: groupIds).toDictionary()
         Alamofire.request(.POST, "http://refly-bd.herokuapp.com/api/videos",parameters: video,
             encoding:.JSON).responseJSON { request in
                 switch request.result {

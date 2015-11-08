@@ -53,6 +53,13 @@
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
+            <key>lorempixel.com</key>
+            <dict>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
 			<key>akamaihd.net</key>
 			<dict>
 				<key>NSExceptionRequiresForwardSecrecy</key>

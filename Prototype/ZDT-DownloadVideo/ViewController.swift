@@ -241,7 +241,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             gender = "women"
         }
         
-        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+        if let url = NSURL(string: "http://lorempixel.com/50/60/") {
             print(url)
             
             if let data = NSData(contentsOfURL: url){
@@ -251,7 +251,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
         cell.title?.text = group.groupName
         cell.groupId = group.groupId
-        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
+        if let url = NSURL(string: "http://lorempixel.com/50/60/") {
             print(url)
             
             if let data = NSData(contentsOfURL: url){
