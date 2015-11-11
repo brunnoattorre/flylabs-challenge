@@ -242,9 +242,50 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             }
         }
         
+        if let url = NSURL(string: "http://api.randomuser.me/portraits/med/men/" + String(arc4random_uniform(100)) + ".jpg") {
+            print(url)
+            
+            if let data = NSData(contentsOfURL: url){
+                cell.personImage?.contentMode = UIViewContentMode.ScaleAspectFit
+                cell.personImage?.image = UIImage(data: data)
+            }
+        }
         
+
         cell.playImage?.image = UIImage(named: "play_button.png")
         
+        if(arc4random_uniform(2) == 1){
+            if let url = NSURL(string: "http://api.randomuser.me/portraits/med/men/" + String(arc4random_uniform(100)) + ".jpg") {
+                print(url)
+        
+                if let data = NSData(contentsOfURL: url){
+                    cell.personImage2?.contentMode = UIViewContentMode.ScaleAspectFit
+                    cell.personImage2?.image = UIImage(data: data)
+                    cell.personImage2?.clipsToBounds = true;
+                    cell.personImage2?.layer.cornerRadius = cell.personImage2.frame.size.width / 2
+                }
+            }
+            if(arc4random_uniform(2) == 1){
+                if let url = NSURL(string: "http://api.randomuser.me/portraits/med/men/" + String(arc4random_uniform(100)) + ".jpg") {
+                    print(url)
+                    
+                    if let data = NSData(contentsOfURL: url){
+                        cell.personImage3?.contentMode = UIViewContentMode.ScaleAspectFit
+                        cell.personImage3?.image = UIImage(data: data)
+                        cell.personImage3?.clipsToBounds = true;
+                        cell.personImage3?.layer.cornerRadius = cell.personImage3.frame.size.width / 2
+                    }
+                }
+                
+            }
+
+        }
+        
+        
+        
+        // round the image
+        cell.personImage?.clipsToBounds = true;
+        cell.personImage?.layer.cornerRadius = cell.personImage.frame.size.width / 2
         
         // give it a gesture recognizer
         let cSelector : Selector = "pressed:"

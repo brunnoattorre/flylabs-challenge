@@ -21,4 +21,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var playImage: UIImageView!
     var groupId: Int!
+    @IBOutlet weak var personImage2: UIImageView!
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personImage3: UIImageView!
 }
