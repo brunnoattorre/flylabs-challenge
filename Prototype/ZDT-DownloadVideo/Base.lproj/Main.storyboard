@@ -3,6 +3,7 @@
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,30 +46,38 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX3-oI-40R">
-                                <rect key="frame" x="0.0" y="188" width="320" height="380"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iX3-oI-40R" secondAttribute="height" multiplier="40:63" id="iIg-Ax-15c"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hH8-bG-0vO">
-                                    <size key="itemSize" width="82" height="108"/>
+                                    <size key="itemSize" width="313" height="108"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="F0Q-nG-YGb" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
+                                        <rect key="frame" x="3.5" y="64" width="313" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cA-x5-EYN">
-                                                    <rect key="frame" x="6" y="8" width="71" height="71"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="108"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-nE-Qf1">
-                                                    <rect key="frame" x="6" y="79" width="76" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yM-lB-2lT">
+                                                    <rect key="frame" x="118" y="15" width="77" height="77"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-nE-Qf1">
+                                                    <rect key="frame" x="8" y="0.0" width="297" height="29"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="11"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -78,6 +87,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="pinImage" destination="7cA-x5-EYN" id="SW0-JN-luO"/>
+                                            <outlet property="playImage" destination="0yM-lB-2lT" id="E5b-C9-u8T"/>
                                             <outlet property="title" destination="cf2-nE-Qf1" id="dfh-Cz-cVh"/>
                                         </connections>
                                     </collectionViewCell>
@@ -87,38 +97,24 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X62-KQ-MxM" customClass="DownloadButton" customModule="Prototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="82" width="320" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="kEi-h9-l9W"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Tmq-Ah-rx1" kind="push" id="UvK-mn-t0M"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" id="DBt-PS-jZf"/>
-                            <constraint firstItem="iX3-oI-40R" firstAttribute="top" secondItem="X62-KQ-MxM" secondAttribute="bottom" constant="16" id="Hyy-z8-4fn"/>
-                            <constraint firstItem="X62-KQ-MxM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="KMR-dJ-8K4"/>
-                            <constraint firstAttribute="trailing" secondItem="X62-KQ-MxM" secondAttribute="trailing" id="QVt-a1-hJ4"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
-                            <constraint firstItem="X62-KQ-MxM" firstAttribute="top" secondItem="GJs-mL-bdB" secondAttribute="bottom" constant="18" id="jgD-Hd-tmG"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Flap" id="27V-oi-hj0"/>
+                    <navigationItem key="navigationItem" title="Flap" id="27V-oi-hj0">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="2rh-pe-hDr">
+                            <connections>
+                                <segue destination="Tmq-Ah-rx1" kind="push" id="CmX-eu-FEa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="iX3-oI-40R" id="adS-PA-aZT"/>
-                        <outlet property="recordButton" destination="X62-KQ-MxM" id="8bB-ty-QDZ"/>
                         <segue destination="D0c-iq-l2W" kind="push" identifier="segue1" animates="NO" id="WHa-LU-e89"/>
                     </connections>
                 </viewController>
@@ -411,6 +407,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UvK-mn-t0M"/>
+        <segue reference="CmX-eu-FEa"/>
     </inferredMetricsTieBreakers>
 </document>

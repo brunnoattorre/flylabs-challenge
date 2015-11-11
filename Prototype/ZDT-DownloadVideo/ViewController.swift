@@ -40,7 +40,6 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     var user_fb_id: String?
     var user_fb_name: String?
     let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
-    let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
     var listGroups: [FlapGroup] = [FlapGroup]()
     var groupsSize: Int = 0
     var friends = []
@@ -134,18 +133,15 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             task.cancel()
         }
     }
-    
-    // MARK: view methods
-    
-    @IBOutlet weak var recordButton: DownloadButton!
+       
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
-        self.recordButton.backgroundColor = self.appColor
-        self.recordButton.layer.cornerRadius = 0
-        print(self.recordButton.layer.cornerRadius.description)
+//        self.recordButton.backgroundColor = self.appColor
+//        self.recordButton.layer.cornerRadius = 0
+//        print(self.recordButton.layer.cornerRadius.description)
         
         collectionView.delegate = self
         let credentialsProvider = AWSCognitoCredentialsProvider(
@@ -229,29 +225,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         let group = self.listGroups[indexPath.item]
         // set title and image
         cell.title?.text = "Group \(indexPath.item)"
-        cell.title?.textAlignment = NSTextAlignment.Center
-        cell.title?.font = self.flapTitleFont
-        cell.title?.textColor = self.appColor
         cell.groupId = indexPath.item
         
-        var gender = ""
-        if(arc4random_uniform(100)>50) {
-            gender = "men"
-        } else {
-            gender = "women"
-        }
         
-        if let url = NSURL(string: "http://lorempixel.com/50/60/") {
-            print(url)
-            
-            if let data = NSData(contentsOfURL: url){
-                cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
-                cell.pinImage?.image = UIImage(data: data)
-            }
-        }
         cell.title?.text = group.groupName
         cell.groupId = group.groupId
-        if let url = NSURL(string: "http://lorempixel.com/50/60/") {
+        if let url = NSURL(string: "http://lorempixel.com/600/200/") {
             print(url)
             
             if let data = NSData(contentsOfURL: url){
@@ -262,11 +241,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 
             }
         }
-
         
-        // round the image
-        cell.pinImage.layer.cornerRadius = cell.pinImage.frame.size.width / 2
-        cell.pinImage.clipsToBounds = true
+        
+        cell.playImage?.image = UIImage(named: "play_button.png")
+        
         
         // give it a gesture recognizer
         let cSelector : Selector = "pressed:"
