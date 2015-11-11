@@ -102,6 +102,9 @@
                                                         <constraint firstAttribute="width" constant="29" id="djT-j6-fYs"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buzz-outline-star-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Vi-6oQ">
+                                                    <rect key="frame" x="289" y="8" width="16" height="18"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -116,6 +119,8 @@
                                             <constraint firstItem="0yM-lB-2lT" firstAttribute="leading" secondItem="dKg-bd-zlb" secondAttribute="trailing" constant="81" id="DJM-tj-7h4"/>
                                             <constraint firstItem="dKg-bd-zlb" firstAttribute="bottom" secondItem="F0Q-nG-YGb" secondAttribute="bottomMargin" id="FNx-oC-IOc"/>
                                             <constraint firstItem="7cA-x5-EYN" firstAttribute="top" secondItem="cf2-nE-Qf1" secondAttribute="top" id="Mmy-c3-19q"/>
+                                            <constraint firstItem="B5M-Vi-6oQ" firstAttribute="trailing" secondItem="F0Q-nG-YGb" secondAttribute="trailingMargin" id="MuC-nI-eyq"/>
+                                            <constraint firstItem="B5M-Vi-6oQ" firstAttribute="top" secondItem="F0Q-nG-YGb" secondAttribute="topMargin" id="TJm-8c-4B7"/>
                                             <constraint firstItem="0yM-lB-2lT" firstAttribute="centerX" secondItem="cf2-nE-Qf1" secondAttribute="centerX" id="TcG-BT-gGf"/>
                                             <constraint firstItem="cf2-nE-Qf1" firstAttribute="leading" secondItem="F0Q-nG-YGb" secondAttribute="leadingMargin" id="W56-pM-pFe"/>
                                             <constraint firstItem="dKg-bd-zlb" firstAttribute="top" secondItem="cf2-nE-Qf1" secondAttribute="bottom" constant="39" id="XKh-em-gKj"/>
@@ -123,10 +128,12 @@
                                             <constraint firstItem="cf2-nE-Qf1" firstAttribute="top" secondItem="F0Q-nG-YGb" secondAttribute="top" id="cUZ-r5-ICR"/>
                                             <constraint firstItem="7cA-x5-EYN" firstAttribute="leading" secondItem="F0Q-nG-YGb" secondAttribute="leading" id="k6v-Sf-wvj"/>
                                             <constraint firstAttribute="bottom" secondItem="7cA-x5-EYN" secondAttribute="bottom" id="nTS-nA-pN8"/>
+                                            <constraint firstItem="B5M-Vi-6oQ" firstAttribute="leading" secondItem="0yM-lB-2lT" secondAttribute="trailing" constant="94" id="nh5-4U-acj"/>
                                             <constraint firstItem="Xsg-Jn-BD9" firstAttribute="bottom" secondItem="F0Q-nG-YGb" secondAttribute="bottomMargin" id="njF-Df-b6p"/>
                                             <constraint firstItem="cf2-nE-Qf1" firstAttribute="leading" secondItem="dKg-bd-zlb" secondAttribute="leading" id="s6f-b6-N9h"/>
                                             <constraint firstItem="Jkt-t3-ymq" firstAttribute="leading" secondItem="dKg-bd-zlb" secondAttribute="trailing" constant="3" id="vKB-IR-c20"/>
                                             <constraint firstItem="0yM-lB-2lT" firstAttribute="top" secondItem="F0Q-nG-YGb" secondAttribute="topMargin" constant="7" id="vcX-hg-ctw"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="B5M-Vi-6oQ" secondAttribute="bottom" constant="74" id="viF-EB-sjH"/>
                                             <constraint firstItem="Xsg-Jn-BD9" firstAttribute="leading" secondItem="Jkt-t3-ymq" secondAttribute="trailing" constant="3" id="ye8-N5-uuE"/>
                                             <constraint firstAttribute="trailing" secondItem="7cA-x5-EYN" secondAttribute="trailing" id="zEu-ha-y3H"/>
                                         </constraints>
@@ -166,6 +173,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Flap" id="27V-oi-hj0">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="2rh-pe-hDr">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Tmq-Ah-rx1" kind="push" id="CmX-eu-FEa"/>
                             </connections>
@@ -465,6 +473,9 @@
             <point key="canvasLocation" x="-636" y="1088"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buzz-outline-star-icon.png" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CmX-eu-FEa"/>
     </inferredMetricsTieBreakers>

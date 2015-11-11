@@ -39,7 +39,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     var user_fb_id: String?
     var user_fb_name: String?
-    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+//    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
     var listGroups: [FlapGroup] = [FlapGroup]()
     var groupsSize: Int = 0
     var friends = []

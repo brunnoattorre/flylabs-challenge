@@ -30,6 +30,8 @@
 		C992D71C1BF3C9EA005851CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C992D71A1BF3C9EA005851CF /* Main.storyboard */; };
 		C992D71E1BF3CE61005851CF /* speech-bubble-512.png in Resources */ = {isa = PBXBuildFile; fileRef = C992D71D1BF3CE61005851CF /* speech-bubble-512.png */; };
 		C992D7201BF3CE77005851CF /* Gaming-Hearts-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C992D71F1BF3CE77005851CF /* Gaming-Hearts-icon.png */; };
+		C992D7221BF3DF7C005851CF /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = C992D7211BF3DF7C005851CF /* comment.png */; };
+		C992D7241BF3DFAD005851CF /* buzz-outline-star-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C992D7231BF3DFAD005851CF /* buzz-outline-star-icon.png */; };
 		C9939AD81BCF02B000515FD2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */; };
 		C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */ = {isa = PBXBuildFile; fileRef = C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */; };
 		C9999D501BCC441B009AFA2F /* MyVideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */; };
@@ -83,6 +85,8 @@
 		C992D71B1BF3C9EA005851CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C992D71D1BF3CE61005851CF /* speech-bubble-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech-bubble-512.png"; sourceTree = "<group>"; };
 		C992D71F1BF3CE77005851CF /* Gaming-Hearts-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gaming-Hearts-icon.png"; sourceTree = "<group>"; };
+		C992D7211BF3DF7C005851CF /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment.png; sourceTree = "<group>"; };
+		C992D7231BF3DFAD005851CF /* buzz-outline-star-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buzz-outline-star-icon.png"; sourceTree = "<group>"; };
 		C9939AD71BCF02B000515FD2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = securitymonkeyHead.png; sourceTree = "<group>"; };
 		C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVideoPlayerViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				C992D7161BF3C42B005851CF /* play_button.png */,
 				C992D71F1BF3CE77005851CF /* Gaming-Hearts-icon.png */,
 				C992D71D1BF3CE61005851CF /* speech-bubble-512.png */,
+				C992D7211BF3DF7C005851CF /* comment.png */,
+				C992D7231BF3DFAD005851CF /* buzz-outline-star-icon.png */,
 				C992D71A1BF3C9EA005851CF /* Main.storyboard */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
@@ -352,6 +358,8 @@
 				C992D7171BF3C42B005851CF /* play_button.png in Resources */,
 				C992D71E1BF3CE61005851CF /* speech-bubble-512.png in Resources */,
 				C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */,
+				C992D7241BF3DFAD005851CF /* buzz-outline-star-icon.png in Resources */,
+				C992D7221BF3DF7C005851CF /* comment.png in Resources */,
 				C992D71C1BF3C9EA005851CF /* Main.storyboard in Resources */,
 				C992D7191BF3C6D7005851CF /* camera.png in Resources */,
 				C992D7201BF3CE77005851CF /* Gaming-Hearts-icon.png in Resources */,
