@@ -228,8 +228,22 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         cell.groupId = indexPath.item
         
         
+        
         cell.title?.text = group.groupName
         cell.groupId = group.groupId
+        cell.notification_image.hidden = true
+        cell.text.hidden = true
+
+
+        if(cell.groupId == 19){
+            cell.notification_image.hidden = false
+            cell.text.hidden = false
+        }
+        if(cell.groupId == 16){
+            cell.notification_image.hidden = false
+            cell.text.hidden = false
+            cell.text.text = "2"
+        }
         if let url = NSURL(string: "http://lorempixel.com/600/200/") {
             print(url)
             

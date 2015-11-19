@@ -24,4 +24,6 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var personImage2: UIImageView!
     @IBOutlet weak var personImage: UIImageView!
     @IBOutlet weak var personImage3: UIImageView!
+    @IBOutlet weak var text: UITextField!
+    @IBOutlet weak var notification_image: UIImageView!
 }
