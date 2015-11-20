@@ -13,7 +13,7 @@ struct Group{
     var list = [Int: Bool]()
 }
 
-class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, NewGroupMembersViewControllerDelegate {
+class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let numGroups = 20
     var url: NSURL = NSURL();
@@ -113,13 +113,6 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
         } else {
             cell.title?.text = "Group \(indexPath.item)"
             
-            var gender = ""
-            if(arc4random_uniform(100)>50) {
-                gender = "men"
-            } else {
-                gender = "women"
-            }
-            
             if let url = NSURL(string: "http://lorempixel.com/400/200/") {
                 print(url)
                 
@@ -147,18 +140,12 @@ class ChooseGroupRecipientsViewController: UIViewController, UIImagePickerContro
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionViewCell
         if((selectedGroups[indexPath.item]) == nil || selectedGroups[indexPath.item] == false){
-            if(indexPath.item == 0) {
-                let newGroupController = self.storyboard?.instantiateViewControllerWithIdentifier("newGroupModalView") as! NewGroupMembersViewController
-                newGroupController.delegate = self
-                presentViewController(newGroupController, animated: true, completion: nil)
-            } else {
-                let width = CABasicAnimation(keyPath: "borderWidth")
-                width.fromValue = 0.0;
-                width.toValue   = 4.0;
-                cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
-                cell.pinImage.layer.borderWidth = 4.0
-                selectedGroups[indexPath.item] = true
-            }
+            let width = CABasicAnimation(keyPath: "borderWidth")
+            width.fromValue = 0.0;
+            width.toValue   = 4.0;
+            cell.pinImage.layer.addAnimation(width, forKey: "borderWidth")
+            cell.pinImage.layer.borderWidth = 4.0
+            selectedGroups[indexPath.item] = true
         } else{
             if(indexPath.item == 0) {
                 self.newGroup = Group()

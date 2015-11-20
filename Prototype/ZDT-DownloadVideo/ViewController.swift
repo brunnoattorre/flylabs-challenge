@@ -235,10 +235,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         cell.text.hidden = true
 
 
-        if(cell.groupId == 19){
-            cell.notification_image.hidden = false
-            cell.text.hidden = false
-        }
+        
         if(cell.groupId == 16){
             cell.notification_image.hidden = false
             cell.text.hidden = false
@@ -265,6 +262,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             }
         }
         
+        if(cell.groupId == 19){
+            cell.pinImage?.image = UIImage(named: "sprint.png")
+            cell.notification_image.hidden = false
+            cell.text.hidden = false
+        }
 
         cell.playImage?.image = UIImage(named: "play_button.png")
         
