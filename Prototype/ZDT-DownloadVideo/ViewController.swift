@@ -194,12 +194,11 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 //                }
             })
         }
-        self.backendService.getGroups("test", controller: self)
-        resetView()
 
     }
     
     func refresh(sender: AnyObject){
+        self.backendService.getGroups("test", controller: self)
         resetView()
         self.refreshControl.endRefreshing()
     }
