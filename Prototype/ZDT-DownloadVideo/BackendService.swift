@@ -27,6 +27,8 @@ class BackendService{
     
     func getGroups(listIds: Array<Int>, controller: ViewController){
         controller.groupsSize = listIds.count
+        controller.listGroups = [FlapGroup]()
+
         for groupId in listIds{
             Alamofire.request(.GET, "http://refly-bd.herokuapp.com/api/group/"+String(groupId),
                 encoding:.JSON).responseJSON { request in

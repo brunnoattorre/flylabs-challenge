@@ -199,7 +199,6 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     func refresh(sender: AnyObject){
         self.backendService.getGroups("test", controller: self)
-        resetView()
         self.refreshControl.endRefreshing()
     }
     
