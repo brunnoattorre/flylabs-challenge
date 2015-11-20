@@ -60,7 +60,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="F0Q-nG-YGb" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="64" width="313" height="108"/>
+                                        <rect key="frame" x="3.5" y="64" width="313" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="313" height="108"/>
@@ -105,6 +105,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buzz-outline-star-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="B5M-Vi-6oQ">
                                                     <rect key="frame" x="289" y="8" width="16" height="18"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red-dot-hi.png" translatesAutoresizingMaskIntoConstraints="NO" id="97l-UK-OWH">
+                                                    <rect key="frame" x="280" y="5" width="27" height="29"/>
+                                                </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" background="I" translatesAutoresizingMaskIntoConstraints="NO" id="ClK-Aw-xEy">
+                                                    <rect key="frame" x="281" y="5" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -138,11 +148,13 @@
                                             <constraint firstAttribute="trailing" secondItem="7cA-x5-EYN" secondAttribute="trailing" id="zEu-ha-y3H"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="notification_image" destination="97l-UK-OWH" id="UfE-wC-WrB"/>
                                             <outlet property="personImage" destination="dKg-bd-zlb" id="V1D-Ld-Qum"/>
                                             <outlet property="personImage2" destination="Jkt-t3-ymq" id="mnz-Db-w83"/>
                                             <outlet property="personImage3" destination="Xsg-Jn-BD9" id="PU2-yg-5sh"/>
                                             <outlet property="pinImage" destination="7cA-x5-EYN" id="SW0-JN-luO"/>
                                             <outlet property="playImage" destination="0yM-lB-2lT" id="E5b-C9-u8T"/>
+                                            <outlet property="text" destination="ClK-Aw-xEy" id="me5-E8-wfl"/>
                                             <outlet property="title" destination="cf2-nE-Qf1" id="dfh-Cz-cVh"/>
                                         </connections>
                                     </collectionViewCell>
@@ -281,10 +293,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="62" id="tIy-Kx-d3K" customClass="FriendTableViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="62"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tIy-Kx-d3K" id="2Rv-ut-euf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-xx-hlS">
@@ -412,7 +424,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JV1-KH-3jh" id="JIb-dy-etf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-ib-lgm">
@@ -455,7 +467,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="I" width="512" height="512"/>
         <image name="buzz-outline-star-icon.png" width="512" height="512"/>
+        <image name="red-dot-hi.png" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d4e-9S-nf6"/>

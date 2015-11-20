@@ -20,7 +20,11 @@
 		56B060D51AD9739B008FE9FB /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B060D41AD9739A008FE9FB /* ProgressView.swift */; };
 		C90C8FF41BCC18FB00725BA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */; };
 		C90C8FF51BCC18FB00725BA9 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90C8FF31BCC18FB00725BA9 /* AVKit.framework */; };
+		C93D4CD91BFE904B00E4340E /* notification_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = C93D4CD81BFE904B00E4340E /* notification_warning.png */; };
+		C93D4CDB1BFE92F900E4340E /* bullet_ball_glass_red.png in Resources */ = {isa = PBXBuildFile; fileRef = C93D4CDA1BFE92F900E4340E /* bullet_ball_glass_red.png */; };
+		C93D4CDD1BFE935B00E4340E /* red-dot-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = C93D4CDC1BFE935B00E4340E /* red-dot-hi.png */; };
 		C947D55E1BD2C09C0040FD6D /* S3ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */; };
+		C969A5F31BFEB4DA00955829 /* sprint.png in Resources */ = {isa = PBXBuildFile; fileRef = C969A5F21BFEB4DA00955829 /* sprint.png */; };
 		C976EFCA1BE94974000EA354 /* FlapGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFC91BE94974000EA354 /* FlapGroup.swift */; };
 		C976EFCC1BE94981000EA354 /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFCB1BE94981000EA354 /* BackendService.swift */; };
 		C976EFD31BE94FBD000EA354 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C976EFD11BE94FBD000EA354 /* User.swift */; };
@@ -68,8 +72,12 @@
 		C90C8FEA1BCC0FE900725BA9 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C90C8FF21BCC18FB00725BA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C90C8FF31BCC18FB00725BA9 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		C93D4CD81BFE904B00E4340E /* notification_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_warning.png; sourceTree = "<group>"; };
+		C93D4CDA1BFE92F900E4340E /* bullet_ball_glass_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_ball_glass_red.png; sourceTree = "<group>"; };
+		C93D4CDC1BFE935B00E4340E /* red-dot-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-dot-hi.png"; sourceTree = "<group>"; };
 		C947D55C1BD2B3B30040FD6D /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		C947D55D1BD2C09C0040FD6D /* S3ClientService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ClientService.swift; sourceTree = "<group>"; };
+		C969A5F21BFEB4DA00955829 /* sprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprint.png; sourceTree = "<group>"; };
 		C976EFC91BE94974000EA354 /* FlapGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapGroup.swift; sourceTree = "<group>"; };
 		C976EFCB1BE94981000EA354 /* BackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
 		C976EFD11BE94FBD000EA354 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 				C976EFCE1BE94F6E000EA354 /* Service */,
 				C976EFD01BE94F93000EA354 /* Util */,
 				56B060B81AD97085008FE9FB /* Images.xcassets */,
+				C93D4CDC1BFE935B00E4340E /* red-dot-hi.png */,
+				C93D4CDA1BFE92F900E4340E /* bullet_ball_glass_red.png */,
+				C969A5F21BFEB4DA00955829 /* sprint.png */,
+				C93D4CD81BFE904B00E4340E /* notification_warning.png */,
 				C992D71A1BF3C9EA005851CF /* Main.storyboard */,
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
@@ -337,8 +349,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				56B060BC1AD97085008FE9FB /* LaunchScreen.xib in Resources */,
+				C93D4CDD1BFE935B00E4340E /* red-dot-hi.png in Resources */,
+				C93D4CD91BFE904B00E4340E /* notification_warning.png in Resources */,
+				C969A5F31BFEB4DA00955829 /* sprint.png in Resources */,
 				C9939ADA1BCF031F00515FD2 /* securitymonkeyHead.png in Resources */,
 				C992D71C1BF3C9EA005851CF /* Main.storyboard in Resources */,
+				C93D4CDB1BFE92F900E4340E /* bullet_ball_glass_red.png in Resources */,
 				56B060B91AD97085008FE9FB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
