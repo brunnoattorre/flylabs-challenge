@@ -251,7 +251,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             cell.text.hidden = false
             cell.text.text = "2"
         }
-        if let url = NSURL(string: "http://lorempixel.com/600/200/") {
+        if let url = NSURL(string: "http://lorempixel.com/300/100/") {
             print(url)
             
             if let data = NSData(contentsOfURL: url){
@@ -276,6 +276,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             cell.pinImage?.image = UIImage(named: "sprint.png")
             cell.notification_image.hidden = false
             cell.text.hidden = false
+            cell.text.text = "7"
+
         }
 
         cell.playImage?.image = UIImage(named: "play_button.png")

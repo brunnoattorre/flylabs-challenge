@@ -172,8 +172,8 @@
                                     <constraint firstAttribute="height" constant="49" id="lSu-F2-HHR"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="ldV-yf-SQd"/>
-                                    <tabBarItem systemItem="more" id="4JZ-fU-Cdk"/>
+                                    <tabBarItem systemItem="contacts" id="ldV-yf-SQd"/>
+                                    <tabBarItem systemItem="featured" id="4JZ-fU-Cdk"/>
                                 </items>
                             </tabBar>
                         </subviews>
