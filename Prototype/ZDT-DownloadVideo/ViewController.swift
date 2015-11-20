@@ -26,7 +26,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     private var uiImage: UIImageView!
     private var backendService = BackendService()
     private var groupId = 0
-    
+    lazy var refreshControl = UIRefreshControl()
     
     var groupSelected: Int!
     
@@ -165,7 +165,10 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
                 self.friends = result["data"] as! [Dictionary<String, String>]
             })
         }
-       
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView.addSubview(refreshControl)
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -191,8 +194,15 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
 //                }
             })
         }
+        self.backendService.getGroups("test", controller: self)
+        resetView()
+
     }
     
+    func refresh(sender: AnyObject){
+        resetView()
+        self.refreshControl.endRefreshing()
+    }
     
     func addGradientBackgroundLayer() {
         let gradientLayer = CAGradientLayer()
