@@ -16,6 +16,8 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     
     var groupId: NSInteger = 0
     var url: NSURL = NSURL()
+    private var backendService = BackendService()
+
     let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
     let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
     
@@ -109,7 +111,8 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         }
         //send to server
         //code
-        
+        backendService.createGroup("test",groupName: self.groupTitle.text!, controller: self)
+
         //go to home screen
         self.navigationController?.popViewControllerAnimated(true)
     }

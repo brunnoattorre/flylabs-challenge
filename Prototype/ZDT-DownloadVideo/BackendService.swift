@@ -59,4 +59,22 @@ class BackendService{
         }
     }
     
+    func createGroup(userId:String, groupName: String, controller: NewGroupMembersViewController){
+        let group = GroupFlap.init(groupName: groupName, userId: userId).toDictionary()
+        Alamofire.request(.POST, "http://refly-bd.herokuapp.com/api/groups",parameters: group,
+            encoding:.JSON).responseJSON { request in
+                switch request.result {
+                case .Success(let JSON):
+                    var dictionary = (json: JSON as! NSDictionary)
+                    print("Group  uploaded" + String(dictionary.valueForKey("group_id")))
+                    controller.groupId = Int(String(dictionary.valueForKey("group_id")!))!
+                    controller.upload()
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+    }
+
+    
 }
