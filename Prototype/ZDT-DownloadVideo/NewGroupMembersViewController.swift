@@ -126,19 +126,15 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 20
+        return 6
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell") as! FriendTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        var gender = ""
-        if(arc4random_uniform(100)>50) {
-            gender = "men"
-        } else {
-            gender = "women"
-        }
+        var gender = "men"
+       
         
         if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
             print(url)
@@ -148,8 +144,8 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
                 cell.profilePic?.image = UIImage(data: data)
             }
         }
-        let names = ["Ben", "Brunno", "YuChien", "Andy", "Steven","Tim"]
-        cell.friendName?.text = names[Int(arc4random_uniform(6))]
+        let names = ["Ben", "Brunno", "YuChien", "Andy", "Rishav","Tim"]
+        cell.friendName?.text = names[indexPath.item]
 
         
         // round the image

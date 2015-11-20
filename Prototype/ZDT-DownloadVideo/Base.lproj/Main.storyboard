@@ -164,9 +164,25 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
                             </collectionView>
+                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSI-b7-sHh">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Kw4-EZ-Oj8"/>
+                                    <constraint firstAttribute="height" constant="49" id="lSu-F2-HHR"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="ldV-yf-SQd"/>
+                                    <tabBarItem systemItem="more" id="4JZ-fU-Cdk"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="oSI-b7-sHh" secondAttribute="bottom" id="EJQ-8o-nxF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oSI-b7-sHh" secondAttribute="trailing" constant="-20" id="W2b-8m-CvY"/>
+                            <constraint firstItem="oSI-b7-sHh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="Z20-WU-6Bu"/>
+                            <constraint firstItem="oSI-b7-sHh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ZKQ-ma-Jd1"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
@@ -472,6 +488,6 @@
         <image name="red-dot-hi.png" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d4e-9S-nf6"/>
+        <segue reference="cZK-Rx-RnX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -46,7 +46,7 @@ class AddGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -68,8 +68,8 @@ class AddGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
         cell.profilePic.clipsToBounds = true
         
-        let names = ["Ben", "Brunno", "YuChien", "Andy", "Steven","Tim", "Flynn","Carlos","Rishav", "Sam"]
-        cell.friendName?.text = names[Int(arc4random_uniform(10))]
+        let names = ["Ben", "Brunno", "YuChien", "Andy", "Rishav","Tim"]
+        cell.friendName?.text = names[indexPath.item]
         return cell
     }
     
