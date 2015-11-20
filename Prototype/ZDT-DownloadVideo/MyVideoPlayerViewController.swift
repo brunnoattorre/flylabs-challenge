@@ -63,9 +63,9 @@ class MyVideoPlayerViewController: AVPlayerViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "addNewVideoToFlap") {
             let ngvc = segue.destinationViewController as! NewGroupMembersViewController
-            self.groupId = 1
             ngvc.groupId = self.groupId
         }
+        
     }
     
     

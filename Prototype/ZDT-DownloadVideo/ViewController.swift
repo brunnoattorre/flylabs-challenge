@@ -25,6 +25,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     
     private var uiImage: UIImageView!
     private var backendService = BackendService()
+    private var groupId = 0
     
     
     var groupSelected: Int!
@@ -111,7 +112,8 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
                 let fileManager = NSFileManager.defaultManager()
                 let documents = try! fileManager.URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
                 let destination = segue.destinationViewController as!
-                AVPlayerViewController
+                MyVideoPlayerViewController
+                destination.groupId = self.groupId
                 var listVideos = [AVPlayerItem]()
                 for task in listTasks{
                     NSLog(String(task.taskIdentifier))
@@ -322,6 +324,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         NSLog(String(sender.view!.tag))
         self.uiImage = (collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: sender.view!.tag, inSection: 0)) as! CollectionViewCell).pinImage
         self.listURLs =   S3ClientService().listFilesFromS3((listGroups[sender.view!.tag] as FlapGroup).groupId)
+        self.groupId = (listGroups[sender.view!.tag] as FlapGroup).groupId
         if(!listURLs.isEmpty){
             downloadButtonPressed()
         }

@@ -67,7 +67,7 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         if(self.groupId>0) {
             //add video to flap
             //code
-            
+            upload()
             //pop off the view controller
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
@@ -76,6 +76,14 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    func upload (){
+        let outFormatter = NSDateFormatter()
+        outFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        outFormatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
+        S3ClientService().uploadToS3( self.url, groupId: self.groupId, videoId: outFormatter.stringFromDate(NSDate()))
+        
     }
     
     
