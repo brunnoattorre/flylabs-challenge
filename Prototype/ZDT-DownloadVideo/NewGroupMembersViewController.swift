@@ -88,12 +88,14 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
                 cell.profilePic?.image = UIImage(data: data)
             }
         }
+        let names = ["Ben", "Brunno", "YuChien", "Andy", "Steven","Tim"]
+        cell.friendName?.text = names[Int(arc4random_uniform(6))]
+
         
         // round the image
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
         cell.profilePic.clipsToBounds = true
         
-        cell.friendName?.text = "Monkey"
         
         return cell
     }

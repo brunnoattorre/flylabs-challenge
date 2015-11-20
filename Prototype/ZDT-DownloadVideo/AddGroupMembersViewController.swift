@@ -46,20 +46,15 @@ class AddGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 20
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell") as! FriendTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        var gender = ""
-        if(arc4random_uniform(100)>50) {
-            gender = "men"
-        } else {
-            gender = "women"
-        }
-        
+        var gender = "men"
+       
         if let url = NSURL(string: "http://api.randomuser.me/portraits/med/" + gender + "/" + String(arc4random_uniform(100)) + ".jpg") {
             print(url)
             
@@ -73,8 +68,8 @@ class AddGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width / 2
         cell.profilePic.clipsToBounds = true
         
-        cell.friendName?.text = "Monkey"
-        
+        let names = ["Ben", "Brunno", "YuChien", "Andy", "Steven","Tim", "Flynn","Carlos","Rishav", "Sam"]
+        cell.friendName?.text = names[Int(arc4random_uniform(10))]
         return cell
     }
     
