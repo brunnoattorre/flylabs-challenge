@@ -8,34 +8,79 @@
 
 import UIKit
 
-protocol NewGroupMembersViewControllerDelegate{
-    func createNewGroup(controller: NewGroupMembersViewController, group: Group)
-}
+//protocol NewGroupMembersViewControllerDelegate{
+//    func createNewGroup(controller: NewGroupMembersViewController, group: Group)
+//}
 
-class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate {
-
+class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var groupId: NSInteger = 0
+    var url: NSURL = NSURL()
+    let appColor = UIColor(red:0.03, green:0.95, blue:0.95, alpha:1.0)
+    let flapTitleFont = UIFont(name: "MarkerFelt-Thin", size: 12)
+    
     @IBOutlet weak var recipientTableView: UITableView!
     @IBOutlet weak var groupTitle: UITextField!
-    
-    var delegate:NewGroupMembersViewControllerDelegate! = nil
     var newGroup = Group()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
         self.recipientTableView.delegate = self
         self.recipientTableView.dataSource = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        self.recipientTableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0)
+        
+        // Call the uiimagepicker for the camera
+        let picker = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                
+                
+                picker.delegate = self
+                picker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+                picker.mediaTypes = [kUTTypeMovie as String]
+                picker.allowsEditing = false
+                picker.videoQuality = UIImagePickerControllerQualityType.TypeMedium
+                picker.videoMaximumDuration = 10
+                
+        } else {
+            
+            picker.delegate = self
+            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            picker.mediaTypes = [kUTTypeImage as String]
+            picker.allowsEditing = true
+        }
+        self.navigationController?.presentViewController(picker, animated: false, completion: nil)
     }
     
+    // MARK: - UIImagePickerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let url = info[UIImagePickerControllerMediaURL] {
+            self.url = url as! NSURL
+        }
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        if(self.groupId>0) {
+            //add video to flap
+            //code
+            
+            //pop off the view controller
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+    
+    
     @IBAction func cancelNewGroup(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func createNewGroup(sender: AnyObject) {
@@ -53,8 +98,12 @@ class NewGroupMembersViewController: UIViewController, UITableViewDelegate, UITa
         }
         if(self.groupTitle.text != "" && !self.newGroup.list.isEmpty) {
             self.newGroup.title = self.groupTitle.text!
-            delegate.createNewGroup(self, group: self.newGroup)
         }
+        //send to server
+        //code
+        
+        //go to home screen
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - Table view data source

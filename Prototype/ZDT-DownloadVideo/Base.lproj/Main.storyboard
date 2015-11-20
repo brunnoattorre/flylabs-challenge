@@ -164,22 +164,11 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="eXS-IZ-Mr3"/>
                                 </connections>
                             </collectionView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-jw-Cnz">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="contacts" id="mEd-HC-b57"/>
-                                    <tabBarItem title="" systemItem="featured" id="Mru-Tp-ei7"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4dv-jw-Cnz" firstAttribute="bottom" secondItem="6S8-iv-ymv" secondAttribute="top" id="1Ul-jA-MBj"/>
-                            <constraint firstItem="4dv-jw-Cnz" firstAttribute="leading" secondItem="iX3-oI-40R" secondAttribute="leading" id="Ed2-He-vqp"/>
                             <constraint firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="d0v-3v-fTW"/>
                             <constraint firstItem="6S8-iv-ymv" firstAttribute="top" secondItem="iX3-oI-40R" secondAttribute="bottom" id="ehF-CU-IYy"/>
-                            <constraint firstItem="4dv-jw-Cnz" firstAttribute="trailing" secondItem="iX3-oI-40R" secondAttribute="trailing" id="mfT-lM-rgL"/>
                             <constraint firstItem="iX3-oI-40R" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vRV-j8-ti1"/>
                         </constraints>
                     </view>
@@ -187,7 +176,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="2rh-pe-hDr">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="Tmq-Ah-rx1" kind="push" id="CmX-eu-FEa"/>
+                                <segue destination="TQm-AF-hx3" kind="push" id="cZK-Rx-RnX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -225,7 +214,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recipientCell" id="ISb-bj-wfG" customClass="CollectionViewCell" customModule="Prototype" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="82" height="108"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="108"/>
@@ -280,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNQ-OB-L2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="1088"/>
+            <point key="canvasLocation" x="-304" y="1122"/>
         </scene>
         <!--New Group Members View Controller-->
         <scene sceneID="THM-oC-EWf">
@@ -294,30 +283,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-a1-0Yk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="lzq-ZK-5bo"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Flap" id="n2p-L9-2H6">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="797-Nq-6o1">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="cancelNewGroup:" destination="TQm-AF-hx3" id="XJY-ds-fx9"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="LQL-dU-Chq">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <action selector="createNewGroup:" destination="TQm-AF-hx3" id="Rwo-0i-FOx"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your flap." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iq5-m6-Bnf">
+                                <rect key="frame" x="32" y="77" width="256" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-7g-rd7">
-                                <rect key="frame" x="0.0" y="123" width="320" height="445"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="62" id="tIy-Kx-d3K" customClass="FriendTableViewCell" customModule="Prototype" customModuleProvider="target">
@@ -345,26 +317,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your flap." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iq5-m6-Bnf">
-                                <rect key="frame" x="32" y="77" width="256" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tOn-a1-0Yk" firstAttribute="top" secondItem="y3N-IL-noe" secondAttribute="top" id="8Os-Op-mxw"/>
-                            <constraint firstItem="Iq5-m6-Bnf" firstAttribute="top" secondItem="tOn-a1-0Yk" secondAttribute="bottom" constant="13" id="9Be-1M-we5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Iq5-m6-Bnf" secondAttribute="trailing" constant="12" id="AOD-PO-t7t"/>
                             <constraint firstItem="Nk4-ZL-cUj" firstAttribute="top" secondItem="y6p-7g-rd7" secondAttribute="bottom" id="Dg3-bY-e2M"/>
                             <constraint firstItem="y6p-7g-rd7" firstAttribute="leading" secondItem="y3N-IL-noe" secondAttribute="leading" id="Q7e-H7-Tlj"/>
                             <constraint firstItem="Iq5-m6-Bnf" firstAttribute="leading" secondItem="y3N-IL-noe" secondAttribute="leadingMargin" constant="12" id="TYn-9J-M4b"/>
-                            <constraint firstItem="tOn-a1-0Yk" firstAttribute="leading" secondItem="y3N-IL-noe" secondAttribute="leading" id="TjO-ob-Mt1"/>
+                            <constraint firstItem="y6p-7g-rd7" firstAttribute="top" secondItem="Iq5-m6-Bnf" secondAttribute="bottom" constant="13" id="hHz-xd-5zX"/>
                             <constraint firstAttribute="trailing" secondItem="y6p-7g-rd7" secondAttribute="trailing" id="oQa-0P-h5Y"/>
-                            <constraint firstAttribute="trailing" secondItem="tOn-a1-0Yk" secondAttribute="trailing" id="uew-fN-ETb"/>
-                            <constraint firstItem="y6p-7g-rd7" firstAttribute="top" secondItem="Iq5-m6-Bnf" secondAttribute="bottom" constant="16" id="uvB-lc-eRp"/>
+                            <constraint firstItem="Iq5-m6-Bnf" firstAttribute="top" secondItem="G0r-9m-cdv" secondAttribute="bottom" constant="13" id="oTv-Qr-5BU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Ep-l9-UNJ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="RLO-YH-pF6">
+                            <connections>
+                                <action selector="cancelNewGroup:" destination="TQm-AF-hx3" id="K3r-lD-kuP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="00z-6u-uzC">
+                            <connections>
+                                <action selector="createNewGroup:" destination="TQm-AF-hx3" id="6iU-En-pNL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="groupTitle" destination="Iq5-m6-Bnf" id="hRF-41-8Of"/>
                         <outlet property="recipientTableView" destination="y6p-7g-rd7" id="xXf-B0-hwR"/>
@@ -372,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryO-Le-ViG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="1088"/>
+            <point key="canvasLocation" x="53" y="1144"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="axf-15-Rb0">
@@ -381,7 +357,7 @@
                     <navigationItem key="navigationItem" id="k89-M2-5m1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="Tmq-Ah-rx1" kind="push" identifier="chooseVideoAfterVideoPlayer" id="7zW-aW-XRg"/>
+                        <segue destination="TQm-AF-hx3" kind="push" identifier="addNewVideoToFlap" id="d4e-9S-nf6"/>
                     </connections>
                 </avPlayerViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDJ-X8-nwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -496,6 +472,6 @@
         <image name="red-dot-hi.png" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CmX-eu-FEa"/>
+        <segue reference="d4e-9S-nf6"/>
     </inferredMetricsTieBreakers>
 </document>
