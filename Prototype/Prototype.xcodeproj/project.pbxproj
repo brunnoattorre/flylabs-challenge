@@ -131,6 +131,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		43F8796D1C02328200B45E07 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
 		56B060A31AD97085008FE9FB = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +182,7 @@
 				56B060BA1AD97085008FE9FB /* LaunchScreen.xib */,
 				56B060D11AD971C8008FE9FB /* Custom views */,
 				56B060AF1AD97085008FE9FB /* Supporting Files */,
-				C947D55C1BD2B3B30040FD6D /* bridging.h */,
+				43F8796D1C02328200B45E07 /* Deprecated */,
 			);
 			name = Prototype;
 			path = "ZDT-DownloadVideo";
@@ -183,6 +191,7 @@
 		56B060AF1AD97085008FE9FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C947D55C1BD2B3B30040FD6D /* bridging.h */,
 				56B060B11AD97085008FE9FB /* AppDelegate.swift */,
 				C9939AD91BCF031F00515FD2 /* securitymonkeyHead.png */,
 				56B060B01AD97085008FE9FB /* Info.plist */,
@@ -228,7 +237,6 @@
 		C976EFCD1BE94F59000EA354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				43DA18E61BD53556005208F3 /* ChooseGroupRecipientsViewController.swift */,
 				56B060B31AD97085008FE9FB /* ViewController.swift */,
 				C9999D4F1BCC441B009AFA2F /* MyVideoPlayerViewController.swift */,
 				434624FF1BE038F800EF7FEA /* NewGroupMembersViewController.swift */,
