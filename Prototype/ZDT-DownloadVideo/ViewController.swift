@@ -27,7 +27,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     private var backendService = BackendService()
     private var groupId = 0
     lazy var refreshControl = UIRefreshControl()
-    var imageList: [UIImage] = [UIImage]()
+    var imageList: [UIImage?] = [UIImage?]()
     
     var groupSelected: Int!
     
@@ -224,28 +224,12 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        loadRandomImages(groupsSize)
         return groupsSize
     }
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
-    func loadRandomImages(number: Int){
-        self.imageList = [UIImage]()
-        
-        for var i = 0; i < self.groupsSize; i++
-        {
-            if let url = NSURL(string: "http://lorempixel.com/300/100/") {
-                print(url)
-                
-                if let data = NSData(contentsOfURL: url){
-                    imageList.append(UIImage(data: data)!)
-                }
-            }
-
-        }
-    }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         // choose reusable cell type
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collCell", forIndexPath: indexPath) as! CollectionViewCell
@@ -270,6 +254,15 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             cell.text.text = "2"
         }
         cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+        if(imageList.count<indexPath.item+1) {
+            if let url = NSURL(string: "http://lorempixel.com/300/100/") {
+                print(url)
+                
+                if let data = NSData(contentsOfURL: url){
+                    imageList.append(UIImage(data: data)!)
+                }
+            }
+        }
         cell.pinImage?.image = imageList[indexPath.item]
         
         if let url = NSURL(string: "http://api.randomuser.me/portraits/med/men/" + String(arc4random_uniform(100)) + ".jpg") {
