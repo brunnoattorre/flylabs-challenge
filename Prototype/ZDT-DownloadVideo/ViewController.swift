@@ -254,6 +254,9 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
             cell.text.text = "2"
         }
         cell.pinImage?.contentMode = UIViewContentMode.ScaleAspectFit
+        print(imageList.count)
+        print(indexPath.item+1)
+        print(imageList.count<indexPath.item+1)
         if(imageList.count<indexPath.item+1) {
             if let url = NSURL(string: "http://lorempixel.com/300/100/") {
                 print(url)
@@ -265,6 +268,7 @@ class ViewController: UIViewController, NSURLSessionDownloadDelegate,UICollectio
         }
         cell.pinImage?.image = imageList[indexPath.item]
         
+        //really we should create an object that has the image, the title, and an array of user images and have an array of these pbjects so we do not have to keep reloading the profile pic images. Also would be cleaner.
         if let url = NSURL(string: "http://api.randomuser.me/portraits/med/men/" + String(arc4random_uniform(100)) + ".jpg") {
             print(url)
             
